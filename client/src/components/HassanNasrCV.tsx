@@ -685,6 +685,15 @@ export default function HassanNasrCV() {
   const heroRef = useRef(null);
   const isHeroInView = useInView(heroRef, { once: true });
   
+  // 3D scroll-based transforms for background objects
+  const y1 = useTransform(scrollYProgress, [0, 1], [0, -50]);
+  const y2 = useTransform(scrollYProgress, [0, 1], [0, -100]);
+  const y3 = useTransform(scrollYProgress, [0, 1], [0, -150]);
+  const rotate1 = useTransform(scrollYProgress, [0, 1], [0, 360]);
+  const rotate2 = useTransform(scrollYProgress, [0, 1], [0, -180]);
+  const scale1 = useTransform(scrollYProgress, [0, 0.5, 1], [1, 1.2, 0.8]);
+  const scale2 = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [1, 0.8, 1.3, 1]);
+  
   // Add loading state
   useEffect(() => {
     const timer = setTimeout(() => setIsLoaded(true), 300);
@@ -747,6 +756,77 @@ export default function HassanNasrCV() {
         />
         <AnimatedBackground />
         <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-white/60 to-white dark:from-black/30 dark:via-black/60 dark:to-black" />
+      </div>
+
+      {/* 3D SCROLL-BASED ANIMATED OBJECTS */}
+      <div className="fixed inset-0 -z-5 overflow-hidden pointer-events-none">
+        {/* Floating geometric shapes */}
+        <motion.div
+          style={{ y: y1, rotate: rotate1, scale: scale1 }}
+          className="absolute top-20 left-10 w-8 h-8 border-2 border-violet-300/30 dark:border-violet-500/30 transform rotate-45"
+        />
+        <motion.div
+          style={{ y: y2, rotate: rotate2 }}
+          className="absolute top-40 right-20 w-6 h-6 bg-gradient-to-br from-blue-400/20 to-cyan-400/20 rounded-full"
+        />
+        <motion.div
+          style={{ y: y3, scale: scale2 }}
+          className="absolute top-80 left-1/4 w-4 h-16 bg-gradient-to-t from-purple-400/20 to-pink-400/20 rounded-full transform -rotate-12"
+        />
+        <motion.div
+          style={{ y: y1, rotate: rotate1 }}
+          className="absolute top-96 right-1/3 w-10 h-10 border border-fuchsia-300/30 dark:border-fuchsia-500/30 rounded-full"
+        />
+        <motion.div
+          style={{ y: y2, rotate: rotate2, scale: scale1 }}
+          className="absolute top-[60vh] left-12 w-12 h-2 bg-gradient-to-r from-emerald-400/20 to-teal-400/20 rounded-full"
+        />
+        <motion.div
+          style={{ y: y3, rotate: rotate1 }}
+          className="absolute top-[80vh] right-16 w-6 h-6 border-2 border-orange-300/30 dark:border-orange-500/30 transform rotate-12"
+        />
+        <motion.div
+          style={{ y: y1, scale: scale2 }}
+          className="absolute top-[100vh] left-1/3 w-8 h-8 bg-gradient-to-bl from-indigo-400/20 to-purple-400/20 rounded-full"
+        />
+        <motion.div
+          style={{ y: y2, rotate: rotate2 }}
+          className="absolute top-[120vh] right-10 w-14 h-1 bg-gradient-to-r from-rose-400/20 to-pink-400/20 rounded-full transform rotate-45"
+        />
+        <motion.div
+          style={{ y: y3, rotate: rotate1, scale: scale1 }}
+          className="absolute top-[140vh] left-20 w-5 h-12 bg-gradient-to-t from-yellow-400/20 to-amber-400/20 rounded-full transform -rotate-30"
+        />
+        <motion.div
+          style={{ y: y1, rotate: rotate2 }}
+          className="absolute top-[160vh] right-1/4 w-7 h-7 border border-cyan-300/30 dark:border-cyan-500/30 rounded-full transform rotate-45"
+        />
+        
+        {/* AI-themed floating icons */}
+        <motion.div
+          style={{ y: y2, rotate: rotate1, scale: scale2 }}
+          className="absolute top-[50vh] right-8 text-violet-400/30 dark:text-violet-500/30 text-2xl"
+        >
+          🤖
+        </motion.div>
+        <motion.div
+          style={{ y: y3, rotate: rotate2 }}
+          className="absolute top-[90vh] left-8 text-blue-400/30 dark:text-blue-500/30 text-xl"
+        >
+          ⚡
+        </motion.div>
+        <motion.div
+          style={{ y: y1, scale: scale1 }}
+          className="absolute top-[130vh] right-12 text-purple-400/30 dark:text-purple-500/30 text-2xl"
+        >
+          🎯
+        </motion.div>
+        <motion.div
+          style={{ y: y2, rotate: rotate1 }}
+          className="absolute top-[170vh] left-16 text-emerald-400/30 dark:text-emerald-500/30 text-xl"
+        >
+          🚀
+        </motion.div>
       </div>
 
       {/* NAVBAR */}
@@ -871,6 +951,61 @@ export default function HassanNasrCV() {
           </div>
           <div className="relative hidden sm:block">
             <div className="absolute -inset-6 -z-10 rounded-3xl bg-gradient-to-br from-violet-500/10 via-fuchsia-500/10 to-blue-500/10 blur-2xl" />
+            
+            {/* Floating objects around the focus card */}
+            <motion.div
+              style={{ y: y1, rotate: rotate1 }}
+              className="absolute -top-4 -left-4 w-3 h-3 bg-violet-400/30 rounded-full"
+              animate={{ 
+                y: [0, -10, 0], 
+                scale: [1, 1.2, 1] 
+              }}
+              transition={{ 
+                duration: 3, 
+                repeat: Infinity,
+                ease: "easeInOut" 
+              }}
+            />
+            <motion.div
+              style={{ y: y2, rotate: rotate2 }}
+              className="absolute -top-2 -right-6 w-2 h-8 bg-gradient-to-t from-blue-400/20 to-cyan-400/20 rounded-full transform rotate-12"
+              animate={{ 
+                rotate: [12, 32, 12],
+                x: [0, 5, 0]
+              }}
+              transition={{ 
+                duration: 4, 
+                repeat: Infinity,
+                ease: "easeInOut" 
+              }}
+            />
+            <motion.div
+              style={{ y: y3, scale: scale1 }}
+              className="absolute -bottom-3 -right-3 w-4 h-4 border border-fuchsia-400/30 rounded-full"
+              animate={{ 
+                scale: [1, 1.3, 1],
+                opacity: [0.3, 0.6, 0.3]
+              }}
+              transition={{ 
+                duration: 2.5, 
+                repeat: Infinity,
+                ease: "easeInOut" 
+              }}
+            />
+            <motion.div
+              style={{ y: y1, rotate: rotate1 }}
+              className="absolute -bottom-4 -left-2 w-6 h-1 bg-gradient-to-r from-purple-400/20 to-pink-400/20 rounded-full"
+              animate={{ 
+                scaleX: [1, 1.5, 1],
+                y: [0, -8, 0]
+              }}
+              transition={{ 
+                duration: 3.5, 
+                repeat: Infinity,
+                ease: "easeInOut" 
+              }}
+            />
+
             <div className="aspect-square w-full rounded-3xl border border-gray-200 dark:border-gray-800 bg-white/60 dark:bg-white/5 backdrop-blur p-6" data-testid="card-focus">
               <div className="grid h-full place-items-center text-center">
                 <div>
