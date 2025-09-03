@@ -2,6 +2,14 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import { motion, AnimatePresence, useScroll, useTransform, useInView } from "framer-motion";
 import { Mail, Github, Linkedin, MapPin, Download, Sun, Moon, ExternalLink, Phone, Menu, X } from "lucide-react";
 
+// Import generated images
+import heroBackground from "@assets/generated_images/AI_tech_portfolio_background_ab8943e0.png";
+import ecommerceImg from "@assets/generated_images/E-commerce_technology_illustration_350c8af2.png";
+import aiAutomationImg from "@assets/generated_images/AI_automation_concept_art_540b5982.png";
+import digitalTransformImg from "@assets/generated_images/Digital_transformation_concept_3fe7574a.png";
+import travelTechImg from "@assets/generated_images/Travel_tech_illustration_4501efe1.png";
+import professionalHeadshot from "@assets/generated_images/Professional_headshot_placeholder_e18e2847.png";
+
 /**
  * Hassan Nasr — Advanced CV / Portfolio, single-file React component
  * - Tailwind CSS for styling
@@ -529,6 +537,17 @@ export default function HassanNasrCV() {
   const filteredProjects = selectedCategory === 'All' 
     ? PROJECTS 
     : PROJECTS.filter(p => p.category === selectedCategory);
+    
+  // Get category image
+  const getCategoryImage = (category: string) => {
+    switch (category) {
+      case 'E-commerce': return ecommerceImg;
+      case 'AI/Automation': return aiAutomationImg;
+      case 'Digital Transformation': return digitalTransformImg;
+      case 'Travel/Tourism': return travelTechImg;
+      default: return aiAutomationImg;
+    }
+  };
 
   // Smooth scroll on nav click
   useEffect(() => {
@@ -563,8 +582,12 @@ export default function HassanNasrCV() {
     <main className="relative min-h-screen bg-gradient-to-b from-violet-50 via-white to-white dark:from-black dark:via-zinc-950 dark:to-black text-gray-900 dark:text-gray-50">
       {/* ANIMATED HERO BACKGROUND */}
       <div className="pointer-events-none absolute inset-0 -z-10 h-[70vh] overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${heroBackground})` }}
+        />
         <AnimatedBackground />
-        <div className="absolute inset-0 bg-gradient-to-b from-white/0 via-white/40 to-white dark:from-black/0 dark:via-black/40 dark:to-black" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-white/60 to-white dark:from-black/30 dark:via-black/60 dark:to-black" />
       </div>
 
       {/* NAVBAR */}
@@ -704,12 +727,23 @@ export default function HassanNasrCV() {
 
       {/* ABOUT */}
       <Section id="about" title="About" subtitle="Builder at the intersection of AI, product, and automation.">
-        <div className="prose prose-zinc max-w-none dark:prose-invert" data-testid="text-about-content">
-          <p>
-            I'm an engineer and product builder with 15+ years across web, mobile, and data systems. I help teams ship
-            pragmatic AI solutions—OCR → RAG → ERP/CRM automations—that reduce manual work and unlock new revenue.
-            I value clear roadmaps, crisp interfaces, and measurable outcomes.
-          </p>
+        <div className="grid md:grid-cols-3 gap-8 items-center">
+          <div className="md:col-span-2 prose prose-zinc max-w-none dark:prose-invert" data-testid="text-about-content">
+            <p>
+              I'm an engineer and product builder with 15+ years across web, mobile, and data systems. I help teams ship
+              pragmatic AI solutions—OCR → RAG → ERP/CRM automations—that reduce manual work and unlock new revenue.
+              I value clear roadmaps, crisp interfaces, and measurable outcomes.
+            </p>
+          </div>
+          <div className="flex justify-center">
+            <div className="w-48 h-48 rounded-2xl overflow-hidden bg-gradient-to-br from-violet-100 to-fuchsia-100 dark:from-violet-900/20 dark:to-fuchsia-900/20 p-2">
+              <img 
+                src={professionalHeadshot} 
+                alt="Hassan Nasr - Professional Portrait"
+                className="w-full h-full object-cover rounded-xl"
+              />
+            </div>
+          </div>
         </div>
       </Section>
 
@@ -828,6 +862,15 @@ export default function HassanNasrCV() {
                 data-testid={`card-project-${i}`}
               >
                 <Card className="p-6 h-full">
+                  {/* Category thumbnail */}
+                  <div className="w-full h-32 mb-4 rounded-lg overflow-hidden bg-gray-100 dark:bg-gray-800">
+                    <img 
+                      src={getCategoryImage(p.category)} 
+                      alt={`${p.category} illustration`}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  
                   <div className="flex items-start justify-between mb-3">
                     <div className="flex-1">
                       <div className="flex items-center gap-2 mb-1">
