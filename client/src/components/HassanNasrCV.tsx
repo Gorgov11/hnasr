@@ -63,6 +63,14 @@ const SKILLS: Array<{ group: string; items: string[] }> = [
     group: "Product & Design",
     items: ["Architecture", "Roadmapping", "UX Systems", "Analytics", "Growth"],
   },
+  {
+    group: "Design & Creative",
+    items: ["Adobe Creative Suite", "Figma", "Canva Pro", "MidJourney", "After Effects"],
+  },
+  {
+    group: "Marketing & Collaboration",
+    items: ["Meta Business Suite", "Google Ads", "Notion", "Trello", "LinkedIn Campaign Manager"],
+  },
 ];
 
 const EXPERIENCE: Array<{
@@ -120,6 +128,70 @@ const EXPERIENCE: Array<{
       "Proposed .NET upgrade path and reporting revamp with KPI dashboards.",
     ],
   },
+];
+
+const BRAND_GROUPS: Array<{
+  title: string;
+  description: string;
+  companies: string[];
+  highlights: string[];
+  category: 'Tech & AI' | 'Retail & Lifestyle' | 'Education & Non-profit' | 'Furniture & Design' | 'Fashion & Luxury';
+}> = [
+  {
+    title: "Tech & AI",
+    description: "Brand systems for technology and AI companies",
+    companies: ["NorAiO", "iDocument", "DGCC.ae", "Automation Egypt"],
+    highlights: [
+      "Full brand systems: logo, pitch decks, social templates, presentation kits",
+      "Investor-ready visuals and automated design-to-publishing workflows",
+      "Canva + Figma + AI-generated creatives integration"
+    ],
+    category: "Tech & AI"
+  },
+  {
+    title: "Retail & Lifestyle",
+    description: "Product packaging and e-commerce brand identities",
+    companies: ["Gorgov", "Titans", "RFC", "Great Gourmet", "London Juice", "Glintzia"],
+    highlights: [
+      "Product packaging designs and e-commerce visuals",
+      "Social ads and campaign creative development",
+      "Brand playbooks for consistent multi-channel rollout"
+    ],
+    category: "Retail & Lifestyle"
+  },
+  {
+    title: "Education & Non-profit",
+    description: "Educational and NGO brand development",
+    companies: ["Edubai", "Little Leaders", "Symbioss Consulting", "Mashrou Group"],
+    highlights: [
+      "Education-focused brand identities and teaching materials",
+      "Book covers and NGO campaign kits",
+      "AI-assisted multi-language marketing material"
+    ],
+    category: "Education & Non-profit"
+  },
+  {
+    title: "Furniture & Design",
+    description: "Interior design and furniture brand systems",
+    companies: ["MK Kabbani", "Homly", "Delight Pack", "Layers"],
+    highlights: [
+      "Catalog layouts and showroom signage",
+      "Digital brochures and 3D mockups",
+      "Figma components for scalable multi-branch marketing"
+    ],
+    category: "Furniture & Design"
+  },
+  {
+    title: "Fashion & Luxury",
+    description: "High-end fashion and luxury brand guidelines",
+    companies: ["El Tarzy", "La Borsetta", "Jovial", "Citadel", "Kayan"],
+    highlights: [
+      "Luxury brand guidelines and lookbooks",
+      "Ad campaigns and e-commerce visuals",
+      "Product photo retouching and cinematic visuals"
+    ],
+    category: "Fashion & Luxury"
+  }
 ];
 
 const PROJECTS: Array<{
@@ -939,6 +1011,113 @@ export default function HassanNasrCV() {
           <div className="text-center p-4 bg-white/60 dark:bg-white/5 rounded-xl border border-gray-200 dark:border-gray-800">
             <div className="text-2xl font-bold text-orange-600">6+</div>
             <div className="text-sm text-gray-600 dark:text-gray-400">Years Experience</div>
+          </div>
+        </motion.div>
+      </Section>
+
+      {/* BRAND DESIGN PORTFOLIO */}
+      <Section id="brand-design" title="Brand Design Portfolio" subtitle="Scalable brand identity systems for 40+ companies across diverse industries.">
+        <div className="mb-8">
+          <div className="text-center max-w-3xl mx-auto">
+            <p className="text-lg text-gray-600 dark:text-gray-400 mb-6">
+              Developed and managed scalable brand identity systems ensuring consistency across digital, print, and marketing channels. 
+              Specialized in logo creation, typography systems, brand guidelines, and cross-platform marketing assets.
+            </p>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+              <div className="p-4 bg-white/60 dark:bg-white/5 rounded-xl border border-gray-200 dark:border-gray-800">
+                <div className="text-2xl font-bold text-violet-600">40+</div>
+                <div className="text-sm text-gray-600 dark:text-gray-400">Companies</div>
+              </div>
+              <div className="p-4 bg-white/60 dark:bg-white/5 rounded-xl border border-gray-200 dark:border-gray-800">
+                <div className="text-2xl font-bold text-blue-600">5</div>
+                <div className="text-sm text-gray-600 dark:text-gray-400">Industries</div>
+              </div>
+              <div className="p-4 bg-white/60 dark:bg-white/5 rounded-xl border border-gray-200 dark:border-gray-800">
+                <div className="text-2xl font-bold text-green-600">AI-Enhanced</div>
+                <div className="text-sm text-gray-600 dark:text-gray-400">Workflows</div>
+              </div>
+              <div className="p-4 bg-white/60 dark:bg-white/5 rounded-xl border border-gray-200 dark:border-gray-800">
+                <div className="text-2xl font-bold text-orange-600">Multi-Channel</div>
+                <div className="text-sm text-gray-600 dark:text-gray-400">Delivery</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div className="grid gap-6 lg:grid-cols-2">
+          {BRAND_GROUPS.map((group, i) => (
+            <motion.div
+              key={group.title}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.1 }}
+              data-testid={`card-brand-group-${i}`}
+            >
+              <Card className="p-6 h-full">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="flex-1">
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2" data-testid={`text-brand-title-${i}`}>
+                      {group.title}
+                    </h3>
+                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-3" data-testid={`text-brand-description-${i}`}>
+                      {group.description}
+                    </p>
+                  </div>
+                  <span className="text-xs uppercase tracking-wider text-gray-400 bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded">
+                    {group.companies.length} brands
+                  </span>
+                </div>
+                
+                <div className="mb-4">
+                  <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Featured Brands:</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {group.companies.map((company) => (
+                      <Badge key={company} data-testid={`badge-company-${company.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}>
+                        {company}
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
+                
+                <div className="space-y-2">
+                  <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300">Key Deliverables:</h4>
+                  {group.highlights.map((highlight, idx) => (
+                    <div key={idx} className="flex items-start gap-2 text-sm text-gray-700 dark:text-gray-300">
+                      <div className="w-1.5 h-1.5 rounded-full bg-violet-500 mt-2 flex-shrink-0" />
+                      <span>{highlight}</span>
+                    </div>
+                  ))}
+                </div>
+              </Card>
+            </motion.div>
+          ))}
+        </div>
+        
+        {/* Tools & Technologies */}
+        <motion.div 
+          className="mt-12 p-6 bg-gradient-to-r from-violet-50 to-fuchsia-50 dark:from-violet-900/20 dark:to-fuchsia-900/20 rounded-2xl border border-gray-200 dark:border-gray-800"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5 }}
+        >
+          <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4 text-center">Technologies & Tools</h3>
+          <div className="grid md:grid-cols-4 gap-4 text-sm">
+            <div>
+              <h4 className="font-semibold text-violet-600 dark:text-violet-400 mb-2">Design & Creative</h4>
+              <p className="text-gray-600 dark:text-gray-400">Adobe Photoshop, Illustrator, InDesign, After Effects, Canva Pro</p>
+            </div>
+            <div>
+              <h4 className="font-semibold text-blue-600 dark:text-blue-400 mb-2">AI & Automation</h4>
+              <p className="text-gray-600 dark:text-gray-400">MidJourney, Runway, ChatGPT for content & visual concepts</p>
+            </div>
+            <div>
+              <h4 className="font-semibold text-green-600 dark:text-green-400 mb-2">Collaboration</h4>
+              <p className="text-gray-600 dark:text-gray-400">Figma (design systems), Notion, Trello, Google Workspace</p>
+            </div>
+            <div>
+              <h4 className="font-semibold text-orange-600 dark:text-orange-400 mb-2">Marketing Ops</h4>
+              <p className="text-gray-600 dark:text-gray-400">Meta Business Suite, LinkedIn Campaign Manager, Google Ads Creative Studio</p>
+            </div>
           </div>
         </motion.div>
       </Section>

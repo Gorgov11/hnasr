@@ -1,0 +1,103 @@
+🗓 Hassan Nasr – Career Timeline
+2005 – 2010 | MTI University (Cairo)
+
+🎓 B.Sc. Computer Science
+
+Learned algorithms, data structures, AI, machine learning, databases, cybersecurity, and software engineering.
+
+Technologies: Python, C++, PHP, JavaScript, SQL, AI/ML fundamentals.
+
+Capstone: AI-powered automation & business intelligence project.
+
+2010 – 2013 | Early IT & Digital Roles
+
+Facility Advertising (2010) – Graphic Designer & IT
+🛠 Tools: Photoshop, Illustrator, CorelDraw, basic networking.
+
+Keys Group (2009–2010) – IT Support
+🛠 Tools: Windows Server, LAN/WAN troubleshooting, ERP basics.
+
+The Way Out ISP (2007–2008) – Corporate Network Engineer (Sheraton/Conrad hotels)
+🛠 Tools: Cisco, Mikrotik, Linux admin.
+
+Dot Technology (2006) – Junior Designer
+🛠 Tools: Dreamweaver, Flash, HTML/CSS.
+
+2013 – 2015 | ERP & Digital Transformation
+
+Sanimalis / ProfVet (Norway) – IT Consultant / ERP Specialist
+
+Led database integrations and ERP testing modules.
+
+Pushed digital transformation to modernize workflows.
+🛠 Tools: SAP, Microsoft Dynamics, SQL Server, .NET basics, Primavera (project management).
+
+2016 – 2020 | Gorgov Digital (Founder)
+
+💼 Digital Performance & Marketing Specialist
+
+Built agency model serving FMCG, travel, fashion, and government clients.
+
+Key Projects:
+
+Obour Land – Corporate site + IR system.
+
+AM Group – Digital transformation & distribution BI.
+
+TATAS Pro – AV/Security enterprise web.
+
+TravGlobe / TravAmericaa – Group travel platforms.
+
+El Tarzy – Luxury tailoring brand site.
+
+Byoot Furniture – Premium showroom branding.
+
+🛠 Tech & Tools gained: WordPress, PHP/Symfony basics, SEO, Google Ads, Facebook Ads, GTM, GA, Trello, Jira, Figma, Adobe Suite.
+
+2021 – 2024 | DGCC.ae (Dubai)
+
+💼 AI & Digital Marketing Specialist
+
+Designed custom GPTs for content generation & chatbot automation.
+
+Built AI-powered marketing strategies, integrating automation into SEO/SEM campaigns.
+
+Optimized ERP/CRM systems with AI data automation.
+
+🛠 Tools gained: OpenAI GPTs, MidJourney, Runway, Replit, Microsoft Copilot, SAP, Dynamics, Meta Business Suite, LinkedIn Ads, Make.com, Databuttons.
+
+2023 – 2024 | Self-Study / Research
+
+📚 Explored & tested next-gen AI tools:
+
+Prompt engineering & GPT building (ChatGPT, Grok, Kimi, Qwen).
+
+AI design & video: MidJourney, Runway, Kling.
+
+Workflow automation: TempoLabs, Make.com, Bolt, Sintra.
+
+Coding & DevOps: Replit, AI code assistants.
+
+Result: Built a full-stack AI toolbox for business ops, marketing, design, and SaaS.
+
+2025 – Present | NorAiO (Oslo, NO)
+
+💼 Founder & CTO
+
+Building AI automation consultancy & SaaS products.
+
+Services: Process automation, GPT integrations, ERP/CRM AI assistants, SaaS tools, AI training.
+
+Focus: Nordic enterprises in finance, logistics, healthcare.
+
+🛠 Tools: Azure AI, OpenAI API, Power Platform (Power Automate, Power Apps), SAP AI Core, Figma, Canva, MidJourney, Runway, Notion, Trello, GitHub, Sentry.
+
+📊 Technologies & Skills Progression
+Period	Focus	Tools & Tech Gained
+2005–2010	Computer Science	Python, C++, PHP, SQL, JavaScript, AI/ML basics
+2010–2013	IT & Design	Photoshop, Illustrator, Cisco, Dreamweaver, Flash, HTML/CSS
+2013–2015	ERP Consulting	SAP, Dynamics, SQL Server, Primavera
+2016–2020	Digital Agency	WordPress, PHP, SEO, Ads, GTM, GA, Adobe Suite, Figma
+2021–2024	AI & Marketing	GPTs, MidJourney, Runway, Replit, Copilot, Make.com
+2023–2024	Research	AI workflow automation, SaaS prototyping, AI video/image
+2025–Now	NorAiO	Azure AI, OpenAI API, Power Platform, SAP AI Core, GitHub, Sentry
