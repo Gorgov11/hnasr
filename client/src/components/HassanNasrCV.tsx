@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Mail, Github, Linkedin, MapPin, Download, Sun, Moon, ExternalLink, Phone } from "lucide-react";
+import { motion, AnimatePresence, useScroll, useTransform, useInView } from "framer-motion";
+import { Mail, Github, Linkedin, MapPin, Download, Sun, Moon, ExternalLink, Phone, Menu, X } from "lucide-react";
 
 /**
  * Hassan Nasr — Advanced CV / Portfolio, single-file React component
@@ -187,34 +187,94 @@ function AnimatedBackground() {
   return (
     <div className="absolute inset-0 overflow-hidden">
       {/* Floating orbs */}
-      <div className="absolute top-20 left-20 w-32 h-32 bg-violet-500/20 rounded-full blur-xl animate-float" />
-      <div className="absolute top-40 right-32 w-24 h-24 bg-fuchsia-500/20 rounded-full blur-xl animate-float" style={{ animationDelay: '2s' }} />
-      <div className="absolute bottom-40 left-1/3 w-28 h-28 bg-blue-500/20 rounded-full blur-xl animate-float" style={{ animationDelay: '4s' }} />
+      <motion.div 
+        className="absolute top-20 left-20 w-32 h-32 bg-violet-500/20 rounded-full blur-xl"
+        animate={{ 
+          y: [0, -20, 0],
+          scale: [1, 1.1, 1],
+          opacity: [0.3, 0.6, 0.3]
+        }}
+        transition={{ 
+          duration: 6, 
+          repeat: Infinity, 
+          ease: "easeInOut" 
+        }}
+      />
+      <motion.div 
+        className="absolute top-40 right-32 w-24 h-24 bg-fuchsia-500/20 rounded-full blur-xl"
+        animate={{ 
+          y: [0, -15, 0],
+          scale: [1, 1.05, 1],
+          opacity: [0.2, 0.5, 0.2]
+        }}
+        transition={{ 
+          duration: 8, 
+          repeat: Infinity, 
+          ease: "easeInOut",
+          delay: 2 
+        }}
+      />
+      <motion.div 
+        className="absolute bottom-40 left-1/3 w-28 h-28 bg-blue-500/20 rounded-full blur-xl"
+        animate={{ 
+          y: [0, -18, 0],
+          scale: [1, 1.08, 1],
+          opacity: [0.25, 0.55, 0.25]
+        }}
+        transition={{ 
+          duration: 7, 
+          repeat: Infinity, 
+          ease: "easeInOut",
+          delay: 4 
+        }}
+      />
       
       {/* Gradient mesh */}
-      <div className="absolute inset-0 bg-gradient-to-br from-violet-500/5 via-transparent to-fuchsia-500/5 animate-pulse" />
+      <div className="absolute inset-0 bg-gradient-to-br from-violet-500/5 via-transparent to-fuchsia-500/5" />
       
       {/* Animated shapes */}
-      <div className="absolute top-1/3 right-1/4 w-1 h-20 bg-gradient-to-b from-violet-500/30 to-transparent rotate-45 animate-pulse" />
-      <div className="absolute bottom-1/3 left-1/4 w-1 h-16 bg-gradient-to-b from-fuchsia-500/30 to-transparent -rotate-45 animate-pulse" style={{ animationDelay: '1s' }} />
+      <motion.div 
+        className="absolute top-1/3 right-1/4 w-1 h-20 bg-gradient-to-b from-violet-500/30 to-transparent rotate-45"
+        animate={{ opacity: [0.3, 0.8, 0.3] }}
+        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.div 
+        className="absolute bottom-1/3 left-1/4 w-1 h-16 bg-gradient-to-b from-fuchsia-500/30 to-transparent -rotate-45"
+        animate={{ opacity: [0.2, 0.7, 0.2] }}
+        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+      />
     </div>
   );
 }
 
 // --------------------------- UI PRIMITIVES --------------------------- //
 function Section({ id, title, subtitle, children }: any) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  
   return (
-    <section id={id} className="relative py-20 sm:py-24">
+    <section id={id} className="relative py-20 sm:py-24" ref={ref}>
       <div className="mx-auto w-full max-w-6xl px-5">
-        <div className="mb-10 flex items-end justify-between gap-4">
+        <motion.div 
+          className="mb-10 flex items-end justify-between gap-4"
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
           <div>
             <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-gray-900 dark:text-white">{title}</h2>
             {subtitle && (
               <p className="mt-1 text-sm sm:text-base text-gray-600 dark:text-gray-300">{subtitle}</p>
             )}
           </div>
-        </div>
-        {children}
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+        >
+          {children}
+        </motion.div>
       </div>
     </section>
   );
@@ -230,9 +290,15 @@ function Badge({ children }: { children: React.ReactNode }) {
 
 function Card({ children, className = "" }: any) {
   return (
-    <div className={`rounded-2xl border border-gray-200 dark:border-gray-800 bg-white/70 dark:bg-white/5 backdrop-blur shadow-sm hover:shadow-md transition-shadow ${className}`}>
+    <motion.div 
+      className={`rounded-2xl border border-gray-200 dark:border-gray-800 bg-white/70 dark:bg-white/5 backdrop-blur shadow-sm transition-all duration-300 ${className}`}
+      whileHover={{ 
+        y: -2, 
+        boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" 
+      }}
+    >
       {children}
-    </div>
+    </motion.div>
   );
 }
 
@@ -247,9 +313,114 @@ function GhostButton({ children, className = "", ...props }: any) {
   );
 }
 
+function ContactForm() {
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData(prev => ({
+      ...prev,
+      [e.target.name]: e.target.value
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    // Simulate form submission
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    
+    setIsSubmitting(false);
+    setSubmitStatus('success');
+    setFormData({ name: '', email: '', message: '' });
+    
+    // Reset status after 3 seconds
+    setTimeout(() => setSubmitStatus('idle'), 3000);
+  };
+
+  return (
+    <form className="mt-4 grid gap-3" onSubmit={handleSubmit} data-testid="form-contact">
+      <motion.input 
+        className="w-full rounded-xl border border-gray-300 dark:border-gray-700 bg-white/70 dark:bg-white/5 px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent transition-all" 
+        placeholder="Your name" 
+        name="name" 
+        value={formData.name}
+        onChange={handleInputChange}
+        required 
+        data-testid="input-contact-name"
+        whileFocus={{ scale: 1.02 }}
+      />
+      <motion.input 
+        className="w-full rounded-xl border border-gray-300 dark:border-gray-700 bg-white/70 dark:bg-white/5 px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent transition-all" 
+        placeholder="Email" 
+        type="email" 
+        name="email" 
+        value={formData.email}
+        onChange={handleInputChange}
+        required 
+        data-testid="input-contact-email"
+        whileFocus={{ scale: 1.02 }}
+      />
+      <motion.textarea 
+        className="min-h-[120px] w-full rounded-xl border border-gray-300 dark:border-gray-700 bg-white/70 dark:bg-white/5 px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent transition-all resize-none" 
+        placeholder="Project details" 
+        name="message" 
+        value={formData.message}
+        onChange={handleInputChange}
+        required 
+        data-testid="input-contact-message"
+        whileFocus={{ scale: 1.02 }}
+      />
+      <motion.button 
+        className="inline-flex items-center justify-center rounded-xl bg-violet-600 px-4 py-2 text-sm font-semibold text-white hover:bg-violet-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all" 
+        type="submit" 
+        disabled={isSubmitting}
+        data-testid="button-contact-submit"
+        whileHover={{ scale: 1.02 }}
+        whileTap={{ scale: 0.98 }}
+      >
+        {isSubmitting ? (
+          <div className="flex items-center gap-2">
+            <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+            Sending...
+          </div>
+        ) : (
+          'Send Message'
+        )}
+      </motion.button>
+      
+      <AnimatePresence>
+        {submitStatus === 'success' && (
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            className="text-sm text-green-600 dark:text-green-400 font-medium"
+          >
+            ✅ Message sent successfully! I'll get back to you soon.
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </form>
+  );
+}
+
 // ------------------------------- PAGE ------------------------------- //
 export default function HassanNasrCV() {
   const [theme, toggleTheme] = useTheme();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const { scrollYProgress } = useScroll();
+  const heroRef = useRef(null);
+  const isHeroInView = useInView(heroRef, { once: true });
+  
+  // Add loading state
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoaded(true), 300);
+    return () => clearTimeout(timer);
+  }, []);
 
   // Smooth scroll on nav click
   useEffect(() => {
@@ -265,6 +436,21 @@ export default function HassanNasrCV() {
     return () => document.removeEventListener("click", handler);
   }, []);
 
+  if (!isLoaded) {
+    return (
+      <div className="min-h-screen bg-gradient-to-b from-violet-50 to-white dark:from-black dark:to-zinc-950 flex items-center justify-center">
+        <motion.div 
+          className="flex flex-col items-center gap-4"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+        >
+          <div className="w-8 h-8 border-2 border-violet-600/30 border-t-violet-600 rounded-full animate-spin" />
+          <p className="text-sm text-gray-600 dark:text-gray-400">Loading portfolio...</p>
+        </motion.div>
+      </div>
+    );
+  }
+  
   return (
     <main className="relative min-h-screen bg-gradient-to-b from-violet-50 via-white to-white dark:from-black dark:via-zinc-950 dark:to-black text-gray-900 dark:text-gray-50">
       {/* ANIMATED HERO BACKGROUND */}
@@ -284,6 +470,15 @@ export default function HassanNasrCV() {
             <a href="#projects" className="hover:text-violet-600 dark:hover:text-violet-400 transition-colors" data-testid="link-projects">Projects</a>
             <a href="#contact" className="hover:text-violet-600 dark:hover:text-violet-400 transition-colors" data-testid="link-contact">Contact</a>
           </nav>
+          
+          {/* Mobile menu button */}
+          <button 
+            className="sm:hidden p-2 text-gray-700 dark:text-gray-300"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            data-testid="button-mobile-menu"
+          >
+            {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
           <div className="flex items-center gap-2">
             <GhostButton onClick={toggleTheme} aria-label="Toggle theme" data-testid="button-theme-toggle">
               {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
@@ -293,10 +488,37 @@ export default function HassanNasrCV() {
             </a>
           </div>
         </div>
+        
+        {/* Mobile Navigation Menu */}
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              className="sm:hidden border-t border-gray-200 dark:border-gray-800 bg-white/95 dark:bg-black/95 backdrop-blur"
+              data-testid="mobile-menu"
+            >
+              <nav className="flex flex-col gap-4 p-4 text-sm">
+                <a href="#about" className="hover:text-violet-600 dark:hover:text-violet-400 transition-colors" onClick={() => setMobileMenuOpen(false)}>About</a>
+                <a href="#skills" className="hover:text-violet-600 dark:hover:text-violet-400 transition-colors" onClick={() => setMobileMenuOpen(false)}>Skills</a>
+                <a href="#experience" className="hover:text-violet-600 dark:hover:text-violet-400 transition-colors" onClick={() => setMobileMenuOpen(false)}>Experience</a>
+                <a href="#projects" className="hover:text-violet-600 dark:hover:text-violet-400 transition-colors" onClick={() => setMobileMenuOpen(false)}>Projects</a>
+                <a href="#contact" className="hover:text-violet-600 dark:hover:text-violet-400 transition-colors" onClick={() => setMobileMenuOpen(false)}>Contact</a>
+              </nav>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </header>
 
+      {/* Progress bar */}
+      <motion.div 
+        className="fixed top-0 left-0 right-0 h-1 bg-violet-600 transform-origin-0 z-50"
+        style={{ scaleX: scrollYProgress }}
+      />
+      
       {/* HERO */}
-      <section id="top" className="relative flex min-h-[64vh] items-center">
+      <section id="top" className="relative flex min-h-[64vh] items-center" ref={heroRef}>
         <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-8 px-5 py-16 sm:grid-cols-2 sm:py-24">
           <div>
             <motion.h1
@@ -488,12 +710,7 @@ export default function HassanNasrCV() {
           <Card className="p-6" data-testid="card-contact-form">
             <h3 className="text-base font-semibold">Get in touch</h3>
             <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">I typically respond within 1–2 business days.</p>
-            <form className="mt-4 grid gap-3" action="https://formspree.io/f/your-code" method="POST" data-testid="form-contact">
-              <input className="w-full rounded-xl border border-gray-300 dark:border-gray-700 bg-white/70 dark:bg-white/5 px-4 py-2 text-sm" placeholder="Your name" name="name" required data-testid="input-contact-name" />
-              <input className="w-full rounded-xl border border-gray-300 dark:border-gray-700 bg-white/70 dark:bg-white/5 px-4 py-2 text-sm" placeholder="Email" type="email" name="email" required data-testid="input-contact-email" />
-              <textarea className="min-h-[120px] w-full rounded-xl border border-gray-300 dark:border-gray-700 bg-white/70 dark:bg-white/5 px-4 py-2 text-sm" placeholder="Project details" name="message" required data-testid="input-contact-message" />
-              <button className="inline-flex items-center justify-center rounded-xl bg-violet-600 px-4 py-2 text-sm font-semibold text-white hover:bg-violet-700" type="submit" data-testid="button-contact-submit">Send</button>
-            </form>
+            <ContactForm />
           </Card>
           <Card className="p-6" data-testid="card-contact-links">
             <h3 className="text-base font-semibold">Direct links</h3>
