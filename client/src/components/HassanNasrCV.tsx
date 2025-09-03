@@ -73,61 +73,116 @@ const SKILLS: Array<{ group: string; items: string[] }> = [
   },
 ];
 
-const EXPERIENCE: Array<{
+const CAREER_TIMELINE: Array<{
+  period: string;
   role: string;
   org: string;
-  period: string;
   location?: string;
-  bullets: string[];
+  description: string;
+  achievements: string[];
+  tools: string[];
+  category: 'Education' | 'Early Career' | 'ERP & Transformation' | 'Digital Agency' | 'AI & Marketing' | 'Research' | 'Current';
 }> = [
   {
-    role: "Founder & AI/Automation Architect",
+    period: "2025 — Present",
+    role: "Founder & CTO",
     org: "NorAiO",
-    period: "2024 — Present",
-    location: "Oslo / Remote",
-    bullets: [
-      "Built AI transformation playbooks for SMEs and enterprises.",
-      "Delivered automation pipelines (OCR → RAG → CRM/ERP) with measurable ROI.",
-      "Scoped, priced, and shipped projects end‑to‑end with clear KPIs.",
+    location: "Oslo, Norway",
+    description: "Building AI automation consultancy & SaaS products for Nordic enterprises",
+    achievements: [
+      "Services: Process automation, GPT integrations, ERP/CRM AI assistants, SaaS tools",
+      "Focus: Nordic enterprises in finance, logistics, healthcare",
+      "Built comprehensive AI toolbox for business operations and automation"
     ],
+    tools: ["Azure AI", "OpenAI API", "Power Platform", "SAP AI Core", "Figma", "GitHub", "Sentry"],
+    category: "Current"
   },
   {
-    role: "Co‑founder • Full‑Stack Lead",
+    period: "2023 — 2024",
+    role: "AI Research & Development",
+    org: "Self-Study",
+    description: "Explored & tested next-generation AI tools and workflow automation",
+    achievements: [
+      "Prompt engineering & GPT building (ChatGPT, Grok, Kimi, Qwen)",
+      "AI design & video: MidJourney, Runway, Kling",
+      "Workflow automation: TempoLabs, Make.com, Bolt, Sintra",
+      "Result: Built full-stack AI toolbox for business ops, marketing, design, and SaaS"
+    ],
+    tools: ["ChatGPT", "MidJourney", "Runway", "Make.com", "Replit", "AI Code Assistants"],
+    category: "Research"
+  },
+  {
+    period: "2021 — 2024",
+    role: "AI & Digital Marketing Specialist",
+    org: "DGCC.ae",
+    location: "Dubai, UAE",
+    description: "Designed custom GPTs and AI-powered marketing automation strategies",
+    achievements: [
+      "Built custom GPTs for content generation & chatbot automation",
+      "Integrated AI automation into SEO/SEM campaigns",
+      "Optimized ERP/CRM systems with AI data automation"
+    ],
+    tools: ["OpenAI GPTs", "MidJourney", "Runway", "Replit", "Microsoft Copilot", "Meta Business Suite", "Make.com"],
+    category: "AI & Marketing"
+  },
+  {
+    period: "2016 — 2020",
+    role: "Founder & Digital Performance Specialist",
     org: "Gorgov Digital",
-    period: "2020 — Present",
-    location: "Remote",
-    bullets: [
-      "Shipped high‑impact web/apps, ERP integrations, and growth campaigns.",
-      "Led architecture and delivery on multi‑stakeholder projects.",
+    location: "Cairo, Egypt",
+    description: "Built digital agency serving FMCG, travel, fashion, and government clients",
+    achievements: [
+      "Obour Land — Corporate site + IR system",
+      "TATAS Pro — AV/Security enterprise web platform",
+      "TravGlobe / TravAmericaa — Group travel platforms",
+      "El Tarzy — Luxury tailoring brand site",
+      "Byoot Furniture — Premium showroom branding"
     ],
+    tools: ["WordPress", "PHP/Symfony", "SEO", "Google Ads", "Facebook Ads", "GTM", "GA", "Figma", "Adobe Suite"],
+    category: "Digital Agency"
   },
   {
-    role: "Lead Engineer (OCR • Offline‑first)",
-    org: "iReceipt / iDocument",
-    period: "2018 — 2023",
-    bullets: [
-      "Designed offline‑first receipt/document scanning (Dexie/IndexedDB).",
-      "Integrated Vision/OCR, cloud storage, and analytics for finance ops.",
+    period: "2013 — 2015",
+    role: "IT Consultant & ERP Specialist",
+    org: "Sanimalis / ProfVet",
+    location: "Oslo, Norway",
+    description: "Led database integrations and ERP testing for veterinary software solutions",
+    achievements: [
+      "Database integrations and ERP testing modules",
+      "Digital transformation to modernize workflows",
+      "Pushed modernization of legacy systems"
     ],
+    tools: ["SAP", "Microsoft Dynamics", "SQL Server", ".NET", "Primavera"],
+    category: "ERP & Transformation"
   },
   {
-    role: "Product Builder • Platform",
-    org: "Shiftaat (SaaS)",
-    period: "2016 — 2019",
-    bullets: [
-      "Scheduling & workforce platform akin to Planday; mobile + web.",
-      "Implemented roles/permissions, notifications, and billing flows.",
+    period: "2010 — 2013",
+    role: "IT & Digital Specialist",
+    org: "Various Companies",
+    description: "Early career roles building foundational IT and design skills",
+    achievements: [
+      "Facility Advertising (2010) — Graphic Designer & IT",
+      "Keys Group (2009–2010) — IT Support & ERP",
+      "The Way Out ISP (2007–2008) — Corporate Network Engineer",
+      "Dot Technology (2006) — Junior Designer"
     ],
+    tools: ["Photoshop", "Illustrator", "CorelDraw", "Cisco", "Mikrotik", "Linux", "Dreamweaver", "Flash"],
+    category: "Early Career"
   },
   {
-    role: "Consultant (VAT Automation • Integrations)",
-    org: "Momspartner",
-    period: "2024 — Present",
-    bullets: [
-      "Mapped production pipeline; introduced AI‑assisted invoice ingestion.",
-      "Proposed .NET upgrade path and reporting revamp with KPI dashboards.",
+    period: "2005 — 2010",
+    role: "Computer Science Student",
+    org: "MTI University",
+    location: "Cairo, Egypt",
+    description: "B.Sc. Computer Science with focus on AI, algorithms, and software engineering",
+    achievements: [
+      "Studied algorithms, data structures, AI, machine learning, databases, cybersecurity",
+      "Capstone: AI-powered automation & business intelligence project",
+      "Built foundation in programming and AI/ML fundamentals"
     ],
-  },
+    tools: ["Python", "C++", "PHP", "JavaScript", "SQL", "AI/ML fundamentals"],
+    category: "Education"
+  }
 ];
 
 const BRAND_GROUPS: Array<{
@@ -840,7 +895,7 @@ export default function HassanNasrCV() {
         <div className="relative">
           <div className="absolute left-4 top-0 h-full w-px bg-gradient-to-b from-transparent via-gray-300 dark:via-gray-700 to-transparent" />
           <div className="space-y-6">
-            {EXPERIENCE.map((exp, i) => (
+            {CAREER_TIMELINE.map((exp, i) => (
               <div key={i} className="relative pl-10" data-testid={`card-experience-${i}`}>
                 <div className="absolute left-0 top-2 grid h-8 w-8 place-items-center rounded-full border border-gray-300 dark:border-gray-700 bg-white/70 dark:bg-white/5 backdrop-blur">
                   <div className="h-2.5 w-2.5 rounded-full bg-violet-600" />
@@ -850,14 +905,30 @@ export default function HassanNasrCV() {
                     <div>
                       <h3 className="text-lg font-semibold text-gray-900 dark:text-white" data-testid={`text-experience-role-${i}`}>{exp.role}</h3>
                       <p className="text-sm text-gray-600 dark:text-gray-400" data-testid={`text-experience-org-${i}`}>{exp.org}{exp.location ? ` • ${exp.location}` : ""}</p>
+                      <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">{exp.description}</p>
                     </div>
                     <span className="text-sm text-gray-600 dark:text-gray-400" data-testid={`text-experience-period-${i}`}>{exp.period}</span>
                   </div>
-                  <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-gray-700 dark:text-gray-300">
-                    {exp.bullets.map((b, j) => (
-                      <li key={j} data-testid={`text-experience-bullet-${i}-${j}`}>{b}</li>
+                  <div className="mt-3 space-y-2">
+                    {exp.achievements.map((achievement, j) => (
+                      <div key={j} className="flex items-start gap-2 text-sm text-gray-700 dark:text-gray-300">
+                        <div className="w-1.5 h-1.5 rounded-full bg-violet-500 mt-2 flex-shrink-0" />
+                        <span data-testid={`text-experience-achievement-${i}-${j}`}>{achievement}</span>
+                      </div>
                     ))}
-                  </ul>
+                  </div>
+                  <div className="mt-3">
+                    <div className="flex flex-wrap gap-2">
+                      {exp.tools.slice(0, 6).map((tool) => (
+                        <Badge key={tool} data-testid={`badge-experience-tool-${tool.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}>
+                          {tool}
+                        </Badge>
+                      ))}
+                      {exp.tools.length > 6 && (
+                        <span className="text-xs text-gray-500 dark:text-gray-400 px-2 py-1">+{exp.tools.length - 6} more</span>
+                      )}
+                    </div>
+                  </div>
                 </Card>
               </div>
             ))}
@@ -1123,20 +1194,46 @@ export default function HassanNasrCV() {
       </Section>
 
       {/* EDUCATION */}
-      <Section id="education" title="Education">
-        <div className="grid gap-4 md:grid-cols-2">
-          {EDUCATION.map((e, i) => (
-            <Card key={i} className="p-5" data-testid={`card-education-${i}`}>
-              <h3 className="text-base font-semibold" data-testid={`text-education-title-${i}`}>{e.title}</h3>
-              <p className="text-sm text-gray-600 dark:text-gray-400" data-testid={`text-education-org-${i}`}>{e.org}</p>
-              <p className="text-sm text-gray-600 dark:text-gray-400" data-testid={`text-education-period-${i}`}>{e.period}</p>
-            </Card>
-          ))}
-          {!EDUCATION.length && (
-            <Card className="p-5 text-sm text-gray-600 dark:text-gray-400">
-              Add your education in the EDUCATION array.
-            </Card>
-          )}
+      <Section id="education" title="Education" subtitle="Academic foundation in computer science and AI.">
+        <div className="max-w-4xl mx-auto">
+          <Card className="p-8">
+            <div className="flex items-start gap-6">
+              <div className="w-16 h-16 bg-gradient-to-br from-indigo-100 to-purple-100 dark:from-indigo-900/20 dark:to-purple-900/20 rounded-2xl flex items-center justify-center flex-shrink-0">
+                <div className="text-2xl font-bold text-indigo-600 dark:text-indigo-400">🎓</div>
+              </div>
+              <div className="flex-1">
+                <div className="flex flex-wrap items-start justify-between gap-3 mb-3">
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-1">B.Sc. Computer Science</h3>
+                    <p className="text-violet-600 dark:text-violet-400 font-medium">MTI University • Cairo, Egypt</p>
+                    <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">Comprehensive computer science program with specialization in AI and software engineering</p>
+                  </div>
+                  <span className="text-sm font-medium text-gray-600 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded-full">2005 – 2010</span>
+                </div>
+                
+                <div className="space-y-3">
+                  <div>
+                    <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Core Curriculum:</h4>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">Algorithms, Data Structures, AI, Machine Learning, Databases, Cybersecurity, Software Engineering</p>
+                  </div>
+                  
+                  <div>
+                    <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Technologies Learned:</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {["Python", "C++", "PHP", "JavaScript", "SQL", "AI/ML fundamentals"].map((tech) => (
+                        <Badge key={tech}>{tech}</Badge>
+                      ))}
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Capstone Project:</h4>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">AI-powered automation & business intelligence system</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Card>
         </div>
       </Section>
 
