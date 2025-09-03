@@ -1,0 +1,252 @@
+Got it—here’s a clean, impact-focused rewrite you can paste into LinkedIn (Projects section). I’ve removed duplicates, tightened language, and standardized dates + structure.
+
+---
+
+# Projects
+
+## NorAiO (Oslo, NO)
+
+**Founder & CTO** · **Jun 2025 – Present**
+AI automation studio helping Nordic SMEs streamline operations with process automation, custom AI models, and ERP/CRM integrations.
+**Highlights:**
+
+* Designed AI-powered workflows that cut manual tasks and boost productivity across finance, logistics, and healthcare.
+* Built reusable components for document automation, RAG chatbots, and analytics.
+  **Skills:** Artificial Intelligence, Process Automation, Digital Transformation, SaaS, ERP/CRM Integration, Power Platform
+
+---
+
+## MK Kabbani – Dubai E-commerce
+
+**Lead Consultant (via Gorgov Digital)** · **Jun 2021 – Present**
+Scaled furniture e-commerce with conversion-oriented UX and performance optimizations.
+**Highlights:**
+
+* Storefront optimization, catalog architecture, and payment/shipping integrations.
+* Analytics setup for funnel tracking and merchandise decisions.
+  **Stack:** Shopify/Custom, GTM/GA, CDN, Search
+
+---
+
+## Obour Land (FMCG)
+
+**Digital Consultant (via Gorgov Digital)** · **May 2020 – Apr 2023; Advisory 2023 – Present**
+Modernized web presence and internal IR/communications workflows.
+**Highlights:**
+
+* Website rebuild and content operations.
+* Internal IR system enhancements for faster updates and approvals.
+  **Skills:** Web Dev, Content Ops, Performance, Governance
+
+---
+
+## TATAS Pro (AV & Security)
+
+**Digital Transformation Advisor (via Gorgov Digital)** · **Apr 2020 – Present**
+Supported enterprise web, catalog, and partner ecosystem for a 125-employee AV/security integrator.
+**Highlights:**
+
+* Multi-vendor product catalog and lead routing.
+* Service/Maintenance center visibility and SLA content.
+  **Stack:** CMS, Search, CRM Hand-offs
+
+---
+
+## Kabbani E-Commerce (Group)
+
+**E-commerce Architect (via Gorgov Digital)** · **Aug 2019 – Present**
+Helped scale omnichannel retail (28+ branches) with web + mobile commerce.
+**Highlights:**
+
+* Click-to-door experience: online purchase, home delivery, and store ops sync.
+* Catalog data model and performance tuning for high SKUs.
+  **Stack:** Headless/Native App, PIM, CDN, Analytics
+
+---
+
+## EL Tarzy (Tailoring Brand)
+
+**Brand & Web Lead (via Gorgov Digital)** · **Jun 2019 – Present**
+Premium tailoring brand site with story-driven UX and lookbooks.
+**Highlights:**
+
+* Editorial content system and product configurators.
+  **Skills:** Brand, UX, Content Systems
+
+---
+
+## AM Group (F\&B)
+
+**Digital Consultant (via Gorgov Digital)** · **Apr 2019 – Present**
+Web + data foundations for a national distributor (27 branches).
+**Highlights:**
+
+* Distribution channel pages and B2B lead capture.
+* Product portfolio presentation and basic BI hooks.
+  **Skills:** Web Dev, Lead Gen, Data Plumbing
+
+---
+
+## TravAmericaa (Travel)
+
+**Product Content Lead** · **Apr 2019 – Present**
+Travel content funnels for US destinations and itineraries.
+**Highlights:**
+
+* Itinerary templates and booking hand-offs.
+  **Skills:** Content Architecture, CRO
+
+---
+
+## TravGlobe (Group Travel)
+
+**Digital Lead (via Gorgov Digital)** · **Jun 2018 – Present**
+Group travel platform with inquiry → proposal flow.
+**Highlights:**
+
+* CRM alignment and lead qualification forms.
+  **Stack:** CMS, CRM, Email
+
+---
+
+## Travolic (Flights Meta-Search)
+
+**Front-end/UX Consultant (via Gorgov Digital)** · **Apr 2018 – Present**
+UX for flight meta-search flows and fare discovery.
+**Highlights:**
+
+* Search and filter performance improvements.
+  **Stack:** SPA, API Integration, Caching
+
+---
+
+## Al Zahrawan Foundation (Non-profit)
+
+**Web & Content Lead (via Gorgov Digital)** · **Jul 2016 – Present**
+Built sustainable content platform for nationwide programs.
+**Highlights:**
+
+* Donations/info architecture, volunteer onboarding flows.
+  **Skills:** Non-profit CMS, Accessibility, SEO
+
+---
+
+## La Nuova Vista
+
+**Designer/Developer** · **May 2016 – Present**
+Site design + custom theme with lightweight CMS.
+**Skills:** UI, Front-end, Deployment
+
+---
+
+## Bvision
+
+**Developer** · **Feb 2016 – Present**
+Modular marketing site with scalable sections for services/cases.
+**Skills:** CMS, Component Design
+
+---
+
+## HandA-eg.com
+
+**Full-stack Web Developer** · **Apr 2015 – Present**
+End-to-end site build and hosting management.
+**Skills:** Hosting, Security, CI/CD
+
+---
+
+## mohmFurniture.com
+
+**Performance & IT Consultant** · **Feb 2015 – Present**
+Optimization, enhancement, and ongoing IT advisory.
+**Skills:** Web Performance, Infra, Monitoring
+
+---
+
+## ADVisioneg.com
+
+**Full-stack Web Developer** · **Sep 2014 – Present**
+Full site build + hosting and content workflows.
+**Skills:** CMS, DevOps (basic)
+
+---
+
+## CDEjewelry-egypt.com
+
+**Web Developer** · **Aug 2014 – Present**
+E-commerce site build and hosting management.
+**Skills:** E-commerce, SEO
+
+---
+
+## Socialzaa.com
+
+**Web Developer** · **Jul 2014 – Present**
+Marketing site with campaign landing pages and analytics.
+**Skills:** LPs, Tracking, A/B Testing
+
+---
+
+## CDE (Group)
+
+**Digital Partner (via Gorgov Digital)** · **Aug 2013 – Present**
+Ongoing digital support across brands and sites.
+**Skills:** Multi-site Ops, Governance
+
+---
+
+## FacilityAdv.com
+
+**Web Developer** · **Aug 2013 – Present**
+Corporate site with portfolio and lead capture.
+**Skills:** Web Dev, Forms, Tracking
+
+---
+
+## Ministry of Hajj & Umrah (haj.gov.sa)
+
+**Front-end Lead & Digital Consultant (via Gorgov Digital)** · **May 2022 – Jan 2023**
+Revamped front-end for accessibility, performance, and clarity.
+**Highlights:**
+
+* Design system tokens, RTL support, and Lighthouse gains.
+  **Skills:** Front-end, Accessibility, Web Performance, Governance
+
+---
+
+## Byoot Furniture
+
+**Digital Lead (via Gorgov Digital)** · **Jan 2020 – Oct 2021**
+Showroom site with product storytelling and lead capture.
+**Skills:** Content, UX, SEO
+
+---
+
+## Art City – 360° Virtual Reality
+
+**XR Producer (via Gorgov Digital)** · **Jun 2017 – Jul 2017**
+Mixed rendered 360° city with live-action capture; first-of-its-kind showcase.
+**Skills:** 360° Video, Post-production
+
+---
+
+## Gorgov.org (Agency Site)
+
+**Founder** · **Ongoing**
+Agency site and capabilities hub.
+**Capabilities:**
+Graphic Design · Digital Printing · Web Dev · CMS · E-commerce · Hosting · SEO · Social & Paid · Email · Mobile Apps · Networking/Hardware · IT Consultation
+
+---
+
+### Notes I applied:
+
+* Removed duplicated paragraphs and “Other contributors” repetitions.
+* Standardized titles, roles, and dates (Month YYYY format).
+* Kept Arabic references but summarized them in English for consistency and clarity.
+* Grouped “via Gorgov Digital” client work for credibility and clean attribution.
+* Reduced long mission statements into concise value + outcome bullets.
+
+If you want, I can also:
+
+1. translate this to Norwegian, 2) tailor each entry with measurable metrics (e.g., +X% conversion, –Y% bounce) where you have numbers, or 3) paste it into a LinkedIn-ready JSON/CSV to bulk import.

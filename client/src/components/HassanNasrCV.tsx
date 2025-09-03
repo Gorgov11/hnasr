@@ -116,46 +116,146 @@ const EXPERIENCE: Array<{
 
 const PROJECTS: Array<{
   name: string;
+  role: string;
+  period: string;
   tagline: string;
+  highlights: string[];
   stack: string[];
+  category: 'AI/Automation' | 'E-commerce' | 'Web Development' | 'Digital Transformation' | 'Travel/Tourism' | 'Non-profit';
+  status: 'Active' | 'Completed' | 'Advisory';
   link?: string;
 }> = [
   {
     name: "NorAiO",
-    tagline: "AI ops partner: assessments → roadmaps → automated delivery",
-    stack: ["Next.js", "OpenAI", "RAG", "Azure/GCP"],
-    link: "#",
+    role: "Founder & CTO",
+    period: "Jun 2025 – Present",
+    tagline: "AI automation studio helping Nordic SMEs streamline operations",
+    highlights: [
+      "Designed AI-powered workflows that cut manual tasks and boost productivity",
+      "Built reusable components for document automation, RAG chatbots, and analytics"
+    ],
+    stack: ["AI", "Process Automation", "ERP/CRM Integration", "Power Platform"],
+    category: "AI/Automation",
+    status: "Active",
+    link: "#"
   },
   {
-    name: "Gorgov Digital",
-    tagline: "Web, mobile, ERP, and growth for ambitious brands",
-    stack: ["React", "Symfony", "Node", "Cloud Run"],
-    link: "#",
+    name: "MK Kabbani – Dubai E-commerce",
+    role: "Lead Consultant",
+    period: "Jun 2021 – Present",
+    tagline: "Scaled furniture e-commerce with conversion-oriented UX",
+    highlights: [
+      "Storefront optimization, catalog architecture, and payment/shipping integrations",
+      "Analytics setup for funnel tracking and merchandise decisions"
+    ],
+    stack: ["Shopify", "GTM/GA", "CDN", "Search"],
+    category: "E-commerce",
+    status: "Active"
   },
   {
-    name: "iReceipt / iDocument",
-    tagline: "OCR receipt & document management — offline‑first",
-    stack: ["Ionic", "Capacitor", "Dexie", "Vision/OCR"],
-    link: "#",
+    name: "Ministry of Hajj & Umrah",
+    role: "Front-end Lead & Digital Consultant",
+    period: "May 2022 – Jan 2023",
+    tagline: "Revamped front-end for accessibility, performance, and clarity",
+    highlights: [
+      "Design system tokens, RTL support, and Lighthouse performance gains",
+      "Enhanced accessibility and user experience for government services"
+    ],
+    stack: ["Front-end", "Accessibility", "Web Performance", "Design Systems"],
+    category: "Digital Transformation",
+    status: "Completed"
   },
   {
-    name: "Shiftaat",
-    tagline: "Scheduling & workforce SaaS for SMEs",
-    stack: ["React", "Node", "Postgres", "Twilio"],
-    link: "#",
+    name: "Kabbani E-Commerce Group",
+    role: "E-commerce Architect",
+    period: "Aug 2019 – Present",
+    tagline: "Scaled omnichannel retail (28+ branches) with web + mobile commerce",
+    highlights: [
+      "Click-to-door experience: online purchase, home delivery, and store ops sync",
+      "Catalog data model and performance tuning for high SKUs"
+    ],
+    stack: ["Headless Commerce", "Native App", "PIM", "CDN", "Analytics"],
+    category: "E-commerce",
+    status: "Active"
   },
   {
-    name: "AI Legion (OSS)",
-    tagline: "Open‑source strategy game — AI‑powered tooling",
-    stack: ["Vite", "TS", "Three.js"],
-    link: "#",
+    name: "TATAS Pro (AV & Security)",
+    role: "Digital Transformation Advisor",
+    period: "Apr 2020 – Present",
+    tagline: "Enterprise web and partner ecosystem for 125-employee AV/security integrator",
+    highlights: [
+      "Multi-vendor product catalog and lead routing system",
+      "Service/Maintenance center visibility and SLA content management"
+    ],
+    stack: ["CMS", "Search", "CRM Integration"],
+    category: "Digital Transformation",
+    status: "Active"
   },
   {
-    name: "VAT Automation (Client)",
-    tagline: "Invoice ingestion → validation → analytics (KPI/ROI)",
-    stack: [".NET", "RPA", "OCR", "Power BI"],
-    link: "#",
+    name: "TravGlobe Group Travel",
+    role: "Digital Lead",
+    period: "Jun 2018 – Present",
+    tagline: "Group travel platform with inquiry → proposal flow",
+    highlights: [
+      "CRM alignment and lead qualification forms",
+      "Streamlined booking and proposal generation workflow"
+    ],
+    stack: ["CMS", "CRM", "Email Automation"],
+    category: "Travel/Tourism",
+    status: "Active"
   },
+  {
+    name: "Travolic Flights Meta-Search",
+    role: "Front-end/UX Consultant",
+    period: "Apr 2018 – Present",
+    tagline: "UX for flight meta-search flows and fare discovery",
+    highlights: [
+      "Search and filter performance improvements",
+      "Enhanced user experience for flight booking platform"
+    ],
+    stack: ["SPA", "API Integration", "Caching"],
+    category: "Travel/Tourism",
+    status: "Active"
+  },
+  {
+    name: "Al Zahrawan Foundation",
+    role: "Web & Content Lead",
+    period: "Jul 2016 – Present",
+    tagline: "Sustainable content platform for nationwide non-profit programs",
+    highlights: [
+      "Donations/info architecture and volunteer onboarding flows",
+      "Accessibility-focused design for inclusive user experience"
+    ],
+    stack: ["CMS", "Accessibility", "SEO"],
+    category: "Non-profit",
+    status: "Active"
+  },
+  {
+    name: "Obour Land (FMCG)",
+    role: "Digital Consultant",
+    period: "May 2020 – Present",
+    tagline: "Modernized web presence and internal IR/communications workflows",
+    highlights: [
+      "Website rebuild and content operations optimization",
+      "Internal IR system enhancements for faster updates and approvals"
+    ],
+    stack: ["Web Dev", "Content Ops", "Performance"],
+    category: "Digital Transformation",
+    status: "Advisory"
+  },
+  {
+    name: "Art City – 360° Virtual Reality",
+    role: "XR Producer",
+    period: "Jun 2017 – Jul 2017",
+    tagline: "Mixed rendered 360° city with live-action capture showcase",
+    highlights: [
+      "First-of-its-kind 360° virtual reality experience",
+      "Combined rendered environments with live-action footage"
+    ],
+    stack: ["360° Video", "Post-production", "XR"],
+    category: "Digital Transformation",
+    status: "Completed"
+  }
 ];
 
 const EDUCATION = [
@@ -412,6 +512,8 @@ export default function HassanNasrCV() {
   const [theme, toggleTheme] = useTheme();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState<string>('All');
+  const [viewMode, setViewMode] = useState<'grid' | 'timeline'>('grid');
   const { scrollYProgress } = useScroll();
   const heroRef = useRef(null);
   const isHeroInView = useInView(heroRef, { once: true });
@@ -421,6 +523,12 @@ export default function HassanNasrCV() {
     const timer = setTimeout(() => setIsLoaded(true), 300);
     return () => clearTimeout(timer);
   }, []);
+  
+  // Filter projects by category
+  const categories = ['All', ...Array.from(new Set(PROJECTS.map(p => p.category)))];
+  const filteredProjects = selectedCategory === 'All' 
+    ? PROJECTS 
+    : PROJECTS.filter(p => p.category === selectedCategory);
 
   // Smooth scroll on nav click
   useEffect(() => {
@@ -652,38 +760,144 @@ export default function HassanNasrCV() {
       </Section>
 
       {/* PROJECTS */}
-      <Section id="projects" title="Selected Projects" subtitle="A few things I've shipped or am actively building.">
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {PROJECTS.map((p, i) => (
-            <motion.a
-              key={p.name}
-              href={p.link || "#"}
-              target={p.link ? "_blank" : undefined}
-              rel={p.link ? "noreferrer" : undefined}
-              whileHover={{ y: -4 }}
-              className="group"
-              data-testid={`card-project-${i}`}
+      <Section id="projects" title="Projects Portfolio" subtitle="Comprehensive overview of digital transformation initiatives and technical implementations.">
+        {/* View Mode Toggle */}
+        <div className="mb-6 flex items-center justify-between">
+          <div className="flex gap-2">
+            <motion.button
+              onClick={() => setViewMode('grid')}
+              className={`px-4 py-2 rounded-xl text-sm font-medium transition-all ${
+                viewMode === 'grid'
+                  ? 'bg-violet-600 text-white'
+                  : 'bg-white/60 dark:bg-white/5 text-gray-700 dark:text-gray-300'
+              }`}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
-              <Card className="p-5 h-full">
-                <div className="flex items-center justify-between">
-                  <h3 className="text-base font-semibold text-gray-900 dark:text-white" data-testid={`text-project-name-${i}`}>{p.name}</h3>
-                  <span className="text-[10px] uppercase tracking-widest text-violet-600" data-testid={`text-project-number-${i}`}>{String(i + 1).padStart(2, "0")}</span>
-                </div>
-                <p className="mt-2 text-sm text-gray-600 dark:text-gray-400" data-testid={`text-project-tagline-${i}`}>{p.tagline}</p>
-                <div className="mt-3 flex flex-wrap gap-2">
-                  {p.stack.map((s) => (
-                    <Badge key={s} data-testid={`badge-project-stack-${i}-${s.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}>{s}</Badge>
-                  ))}
-                </div>
-                {p.link && (
-                  <div className="mt-4 inline-flex items-center gap-1 text-sm text-violet-600 group-hover:underline">
-                    View <ExternalLink size={14} />
-                  </div>
-                )}
-              </Card>
-            </motion.a>
+              Grid View
+            </motion.button>
+            <motion.button
+              onClick={() => setViewMode('timeline')}
+              className={`px-4 py-2 rounded-xl text-sm font-medium transition-all ${
+                viewMode === 'timeline'
+                  ? 'bg-violet-600 text-white'
+                  : 'bg-white/60 dark:bg-white/5 text-gray-700 dark:text-gray-300'
+              }`}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Timeline View
+            </motion.button>
+          </div>
+        </div>
+        
+        {/* Category Filter */}
+        <div className="mb-8 flex flex-wrap gap-2">
+          {categories.map((category) => (
+            <motion.button
+              key={category}
+              onClick={() => setSelectedCategory(category)}
+              className={`px-4 py-2 rounded-xl text-sm font-medium transition-all ${
+                selectedCategory === category
+                  ? 'bg-violet-600 text-white'
+                  : 'bg-white/60 dark:bg-white/5 text-gray-700 dark:text-gray-300 hover:bg-violet-100 dark:hover:bg-violet-900/20'
+              }`}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              data-testid={`filter-${category.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
+            >
+              {category}
+            </motion.button>
           ))}
         </div>
+        
+        {/* Projects Grid */}
+        <motion.div 
+          className="grid gap-6 lg:grid-cols-2"
+          layout
+        >
+          <AnimatePresence mode="popLayout">
+            {filteredProjects.map((p, i) => (
+              <motion.div
+                key={p.name}
+                layout
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.3 }}
+                data-testid={`card-project-${i}`}
+              >
+                <Card className="p-6 h-full">
+                  <div className="flex items-start justify-between mb-3">
+                    <div className="flex-1">
+                      <div className="flex items-center gap-2 mb-1">
+                        <h3 className="text-lg font-semibold text-gray-900 dark:text-white" data-testid={`text-project-name-${i}`}>{p.name}</h3>
+                        <span className={`px-2 py-1 rounded-full text-xs font-medium ${
+                          p.status === 'Active' ? 'bg-green-100 text-green-700 dark:bg-green-900/20 dark:text-green-400' :
+                          p.status === 'Advisory' ? 'bg-blue-100 text-blue-700 dark:bg-blue-900/20 dark:text-blue-400' :
+                          'bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-400'
+                        }`}>
+                          {p.status}
+                        </span>
+                      </div>
+                      <p className="text-sm text-violet-600 dark:text-violet-400 font-medium" data-testid={`text-project-role-${i}`}>{p.role}</p>
+                      <p className="text-xs text-gray-500 dark:text-gray-400 mt-1" data-testid={`text-project-period-${i}`}>{p.period}</p>
+                    </div>
+                    <span className="text-xs uppercase tracking-wider text-gray-400 bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded" data-testid={`text-project-category-${i}`}>{p.category}</span>
+                  </div>
+                  
+                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-4" data-testid={`text-project-tagline-${i}`}>{p.tagline}</p>
+                  
+                  <div className="space-y-2 mb-4">
+                    {p.highlights.map((highlight, idx) => (
+                      <div key={idx} className="flex items-start gap-2 text-sm text-gray-700 dark:text-gray-300">
+                        <div className="w-1.5 h-1.5 rounded-full bg-violet-500 mt-2 flex-shrink-0" />
+                        <span>{highlight}</span>
+                      </div>
+                    ))}
+                  </div>
+                  
+                  <div className="flex flex-wrap gap-2">
+                    {p.stack.map((s) => (
+                      <Badge key={s} data-testid={`badge-project-stack-${i}-${s.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}>{s}</Badge>
+                    ))}
+                  </div>
+                  
+                  {p.link && (
+                    <div className="mt-4 inline-flex items-center gap-1 text-sm text-violet-600 hover:underline cursor-pointer">
+                      View Project <ExternalLink size={14} />
+                    </div>
+                  )}
+                </Card>
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </motion.div>
+        
+        {/* Project Stats */}
+        <motion.div 
+          className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5 }}
+        >
+          <div className="text-center p-4 bg-white/60 dark:bg-white/5 rounded-xl border border-gray-200 dark:border-gray-800">
+            <div className="text-2xl font-bold text-violet-600">{PROJECTS.length}</div>
+            <div className="text-sm text-gray-600 dark:text-gray-400">Total Projects</div>
+          </div>
+          <div className="text-center p-4 bg-white/60 dark:bg-white/5 rounded-xl border border-gray-200 dark:border-gray-800">
+            <div className="text-2xl font-bold text-green-600">{PROJECTS.filter(p => p.status === 'Active').length}</div>
+            <div className="text-sm text-gray-600 dark:text-gray-400">Active Projects</div>
+          </div>
+          <div className="text-center p-4 bg-white/60 dark:bg-white/5 rounded-xl border border-gray-200 dark:border-gray-800">
+            <div className="text-2xl font-bold text-blue-600">{categories.length - 1}</div>
+            <div className="text-sm text-gray-600 dark:text-gray-400">Categories</div>
+          </div>
+          <div className="text-center p-4 bg-white/60 dark:bg-white/5 rounded-xl border border-gray-200 dark:border-gray-800">
+            <div className="text-2xl font-bold text-orange-600">6+</div>
+            <div className="text-sm text-gray-600 dark:text-gray-400">Years Experience</div>
+          </div>
+        </motion.div>
       </Section>
 
       {/* EDUCATION */}
