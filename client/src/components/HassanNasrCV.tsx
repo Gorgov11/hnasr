@@ -42,34 +42,66 @@ const LINKS = {
   resume: "/HassanNasr_CV.pdf", // ← change or keep as placeholder
 };
 
-const SKILLS: Array<{ group: string; items: string[] }> = [
+const SKILLS: Array<{ group: string; items: string[]; description?: string }> = [
   {
-    group: "Languages",
-    items: ["TypeScript/JavaScript", "Python", "C#", "PHP", "SQL"],
+    group: "🤖 AI & Automation",
+    description: "LLM ecosystem and intelligent workflow automation",
+    items: [
+      "ChatGPT (Custom GPTs)", "Grok", "Qwen", "Kimi",
+      "Microsoft Copilot Studio", "Replit AI", "TempoLabs", "Make.com",
+      "MidJourney V6", "Runway Gen-3", "Kling AI", "Stable Diffusion XL",
+      "OpenAI Assistants API", "Twilio AI voicebots", "WhatsApp AI",
+      "Sintra Analytics", "Databuttons"
+    ],
   },
   {
-    group: "Frameworks & Runtimes",
-    items: ["React/Next.js", ".NET", "Node.js", "Symfony", "Ionic/Capacitor"],
+    group: "💻 Development & Systems",
+    description: "Full-stack development with modern frameworks and tools",
+    items: [
+      "Python (AI/automation)", "JavaScript (React/Node)", "PHP (Symfony)", "C++",
+      ".NET 8", "React + Tailwind", "Ionic/Capacitor", "Vite",
+      "SQL Server", "MySQL", "IndexedDB", "Firestore",
+      "GitHub Actions", "Docker", "Sentry", "Vercel", "Google Cloud Functions"
+    ],
   },
   {
-    group: "AI/ML • Data",
-    items: ["OpenAI API", "RAG & Vector DBs", "OCR/Document AI", "Pandas/NumPy", "ETL Pipelines"],
+    group: "📊 Business Systems",
+    description: "Enterprise ERP/CRM and compliance-ready integrations",
+    items: [
+      "Microsoft Dynamics 365", "SAP S/4HANA", "API-based CRM",
+      "Power Automate", "Power Apps", "Power BI", "Dataverse",
+      "Stripe", "RevenueCat", "SendGrid", "Twilio",
+      "SAF-T standards (Norway)", "GDPR-ready data flows"
+    ],
   },
   {
-    group: "Cloud & DevOps",
-    items: ["GCP", "Azure", "Docker", "CI/CD", "Sentry", "Vercel/Netlify"],
+    group: "📈 Marketing & Growth",
+    description: "AI-driven marketing automation and performance optimization",
+    items: [
+      "Google Ads (Performance Max)", "Meta Ads Manager", "LinkedIn Campaign Manager",
+      "AI-driven keyword research", "Programmatic SEO", "Technical SEO audits",
+      "GA4", "Looker Studio", "Hotjar", "AI-based funnel analysis",
+      "Adtraction platform", "Referral automation", "Email drip AI tools"
+    ],
   },
   {
-    group: "Product & Design",
-    items: ["Architecture", "Roadmapping", "UX Systems", "Analytics", "Growth"],
+    group: "🎨 Design & Creative",
+    description: "AI-enhanced creative workflows and design systems",
+    items: [
+      "Adobe Photoshop", "Illustrator", "After Effects",
+      "Figma (Design systems)", "Canva Pro (Multi-brand kits)",
+      "MidJourney", "Runway Gen-3", "Kaiber", "DID (AI avatars)",
+      "Spline 3D", "Automated design templates"
+    ],
   },
   {
-    group: "Design & Creative",
-    items: ["Adobe Creative Suite", "Figma", "Canva Pro", "MidJourney", "After Effects"],
-  },
-  {
-    group: "Marketing & Collaboration",
-    items: ["Meta Business Suite", "Google Ads", "Notion", "Trello", "LinkedIn Campaign Manager"],
+    group: "⚙️ Productivity & Collaboration",
+    description: "AI-enhanced project management and knowledge systems",
+    items: [
+      "Trello", "Notion (AI-enhanced)", "Jira", "Asana",
+      "Google Workspace", "Slack", "Microsoft Teams",
+      "Obsidian (PKM)", "Office 365 Copilot", "Miro", "FigJam"
+    ],
   },
 ];
 
@@ -875,19 +907,64 @@ export default function HassanNasrCV() {
       </Section>
 
       {/* SKILLS */}
-      <Section id="skills" title="Skills" subtitle="A curated set of tools I reach for often.">
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {SKILLS.map((s) => (
-            <Card key={s.group} className="p-5" data-testid={`card-skill-${s.group.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}>
-              <h3 className="text-base font-semibold text-gray-900 dark:text-white">{s.group}</h3>
-              <div className="mt-3 flex flex-wrap gap-2">
-                {s.items.map((item) => (
-                  <Badge key={item} data-testid={`badge-skill-${item.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}>{item}</Badge>
-                ))}
-              </div>
-            </Card>
+      <Section id="skills" title="Skills" subtitle="A curated set of tools I reach for often, built from 15+ years across IT, digital, and AI projects.">
+        <div className="grid gap-6 lg:grid-cols-2">
+          {SKILLS.map((s, i) => (
+            <motion.div
+              key={s.group}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.1 }}
+              data-testid={`card-skill-${s.group.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
+            >
+              <Card className="p-6 h-full">
+                <div className="mb-4">
+                  <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">{s.group}</h3>
+                  {s.description && (
+                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">{s.description}</p>
+                  )}
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {s.items.map((item) => (
+                    <Badge key={item} data-testid={`badge-skill-${item.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}>
+                      {item}
+                    </Badge>
+                  ))}
+                </div>
+              </Card>
+            </motion.div>
           ))}
         </div>
+        
+        {/* Skills Summary */}
+        <motion.div 
+          className="mt-12 p-6 bg-gradient-to-r from-violet-50 to-fuchsia-50 dark:from-violet-900/20 dark:to-fuchsia-900/20 rounded-2xl border border-gray-200 dark:border-gray-800"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6 }}
+        >
+          <div className="text-center">
+            <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4">Technical Expertise Overview</h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+              <div className="text-center">
+                <div className="text-2xl font-bold text-violet-600">50+</div>
+                <div className="text-gray-600 dark:text-gray-400">AI Tools</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl font-bold text-blue-600">15+</div>
+                <div className="text-gray-600 dark:text-gray-400">Languages & Frameworks</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl font-bold text-green-600">20+</div>
+                <div className="text-gray-600 dark:text-gray-400">Business Systems</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl font-bold text-orange-600">25+</div>
+                <div className="text-gray-600 dark:text-gray-400">Creative & Marketing Tools</div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </Section>
 
       {/* EXPERIENCE */}
