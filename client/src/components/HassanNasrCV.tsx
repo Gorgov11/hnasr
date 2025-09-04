@@ -4,13 +4,13 @@ import { Mail, Github, Linkedin, MapPin, Download, Sun, Moon, ExternalLink, Phon
 import { LogoLoop } from "./LogoLoop";
 import { 
   SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiNodedotjs, SiPython, 
-  SiOpenai, SiMongodb, SiPostgresql, SiDocker, SiAws, SiGooglecloud,
+  SiOpenai, SiMongodb, SiPostgresql, SiDocker, SiAwslambda, SiGooglecloud,
   SiFigma, SiAdobephotoshop, SiAdobeillustrator, SiCanva, SiNotion,
   SiSlack, SiZapier, SiHubspot, SiSalesforce, SiShopify, SiWordpress,
   SiStripe, SiPaypal, SiGit, SiGithub, SiVercel, SiNetlify, SiFramer,
   SiJavascript, SiHtml5, SiCss3, SiBootstrap, SiVuedotjs, SiAngular,
   SiExpress, SiFlask, SiDjango, SiMysql, SiRedis, SiElasticsearch,
-  SiKubernetes, SiTerraform, SiJenkins, SiGitlab, SiLinux, SiUbuntu
+  SiKubernetes, SiTerraform, SiJenkins, SiGitlab
 } from 'react-icons/si';
 
 // Import generated images
@@ -1453,7 +1453,7 @@ export default function HassanNasrCV() {
               <LogoLoop
                 logos={[
                   { node: <SiOpenai className="text-black dark:text-white" />, title: "OpenAI", href: "https://openai.com" },
-                  { node: <SiAws className="text-orange-500" />, title: "AWS", href: "https://aws.amazon.com" },
+                  { node: <span className="text-orange-500 font-bold text-lg">AWS</span>, title: "AWS", href: "https://aws.amazon.com" },
                   { node: <SiGooglecloud className="text-blue-500" />, title: "Google Cloud", href: "https://cloud.google.com" },
                   { node: <SiDocker className="text-blue-600" />, title: "Docker", href: "https://docker.com" },
                   { node: <SiKubernetes className="text-blue-700" />, title: "Kubernetes" },
