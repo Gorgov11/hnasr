@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import { motion, AnimatePresence, useScroll, useTransform, useInView } from "framer-motion";
 import { Mail, Github, Linkedin, MapPin, Download, Sun, Moon, ExternalLink, Phone, Menu, X } from "lucide-react";
 import { LogoLoop } from "./LogoLoop";
+import MagicBento from "./MagicBento";
 import { 
   SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiNodedotjs, SiPython, 
   SiOpenai, SiMongodb, SiPostgresql, SiDocker, SiAwslambda, SiGooglecloud,
@@ -1017,7 +1018,20 @@ export default function HassanNasrCV() {
               }}
             />
 
-            <div className="aspect-square w-full rounded-3xl border border-gray-200 dark:border-gray-800 bg-white/60 dark:bg-white/5 backdrop-blur p-6" data-testid="card-focus">
+            <MagicBento
+              textAutoHide={true}
+              enableStars={true}
+              enableSpotlight={true}
+              enableBorderGlow={true}
+              enableTilt={true}
+              enableMagnetism={true}
+              clickEffect={true}
+              spotlightRadius={300}
+              particleCount={12}
+              glowColor="139, 92, 246"
+              className="aspect-square w-full p-6"
+              data-testid="card-focus"
+            >
               <div className="grid h-full place-items-center text-center relative">
                 {/* 3D AI Triangle of Power */}
                 <div className="relative w-56 h-56">
@@ -1283,7 +1297,7 @@ export default function HassanNasrCV() {
                   <p className="text-sm text-gray-600 dark:text-gray-400">Clean architecture, measurable ROI, delightful UX</p>
                 </div>
               </div>
-            </div>
+            </MagicBento>
           </div>
         </div>
       </section>
