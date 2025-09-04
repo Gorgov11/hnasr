@@ -1126,24 +1126,45 @@ export default function HassanNasrCV() {
             </p>
           </div>
 
-          {/* Frontend & Design */}
+          {/* All Technologies in One Line */}
           <div className="space-y-4">
-            <h4 className="text-lg font-semibold text-violet-600 dark:text-violet-400 text-center">Frontend & Design</h4>
+            <h4 className="text-lg font-semibold text-gray-900 dark:text-white text-center">Full Technology Stack</h4>
             <div className="h-16 overflow-hidden">
               <LogoLoop
                 logos={[
+                  // Frontend & Design
                   { node: <SiReact className="text-blue-500" />, title: "React", href: "https://react.dev" },
                   { node: <SiNextdotjs className="text-black dark:text-white" />, title: "Next.js", href: "https://nextjs.org" },
                   { node: <SiTypescript className="text-blue-600" />, title: "TypeScript", href: "https://www.typescriptlang.org" },
                   { node: <SiJavascript className="text-yellow-500" />, title: "JavaScript" },
                   { node: <SiTailwindcss className="text-cyan-500" />, title: "Tailwind CSS", href: "https://tailwindcss.com" },
-                  { node: <SiBootstrap className="text-purple-600" />, title: "Bootstrap" },
-                  { node: <SiHtml5 className="text-orange-600" />, title: "HTML5" },
-                  { node: <SiCss3 className="text-blue-500" />, title: "CSS3" },
-                  { node: <SiVuedotjs className="text-green-500" />, title: "Vue.js" },
-                  { node: <SiAngular className="text-red-600" />, title: "Angular" },
                   { node: <SiFigma className="text-purple-500" />, title: "Figma", href: "https://figma.com" },
-                  { node: <SiFramer className="text-black dark:text-white" />, title: "Framer" }
+                  
+                  // Backend & Database
+                  { node: <SiNodedotjs className="text-green-600" />, title: "Node.js", href: "https://nodejs.org" },
+                  { node: <SiPython className="text-blue-500" />, title: "Python", href: "https://python.org" },
+                  { node: <SiExpress className="text-gray-600" />, title: "Express.js" },
+                  { node: <SiPostgresql className="text-blue-600" />, title: "PostgreSQL", href: "https://postgresql.org" },
+                  { node: <SiMongodb className="text-green-500" />, title: "MongoDB", href: "https://mongodb.com" },
+                  { node: <SiRedis className="text-red-600" />, title: "Redis" },
+                  
+                  // AI & Cloud Infrastructure
+                  { node: <SiOpenai className="text-black dark:text-white" />, title: "OpenAI", href: "https://openai.com" },
+                  { node: <span className="text-orange-500 font-bold text-lg">AWS</span>, title: "AWS", href: "https://aws.amazon.com" },
+                  { node: <SiGooglecloud className="text-blue-500" />, title: "Google Cloud", href: "https://cloud.google.com" },
+                  { node: <SiDocker className="text-blue-600" />, title: "Docker", href: "https://docker.com" },
+                  { node: <SiKubernetes className="text-blue-700" />, title: "Kubernetes" },
+                  { node: <SiGithub className="text-black dark:text-white" />, title: "GitHub", href: "https://github.com" },
+                  
+                  // Business & Automation
+                  { node: <SiZapier className="text-orange-500" />, title: "Zapier", href: "https://zapier.com" },
+                  { node: <SiHubspot className="text-orange-600" />, title: "HubSpot", href: "https://hubspot.com" },
+                  { node: <SiSalesforce className="text-blue-500" />, title: "Salesforce", href: "https://salesforce.com" },
+                  { node: <SiShopify className="text-green-600" />, title: "Shopify", href: "https://shopify.com" },
+                  { node: <SiStripe className="text-purple-600" />, title: "Stripe", href: "https://stripe.com" },
+                  { node: <SiNotion className="text-black dark:text-white" />, title: "Notion", href: "https://notion.so" },
+                  { node: <SiAdobephotoshop className="text-blue-700" />, title: "Photoshop" },
+                  { node: <SiCanva className="text-purple-500" />, title: "Canva", href: "https://canva.com" }
                 ]}
                 speed={60}
                 direction="left"
@@ -1153,101 +1174,7 @@ export default function HassanNasrCV() {
                 scaleOnHover={true}
                 fadeOut={true}
                 fadeOutColor="transparent"
-                ariaLabel="Frontend and design technologies"
-              />
-            </div>
-          </div>
-
-          {/* Backend & Database */}
-          <div className="space-y-4">
-            <h4 className="text-lg font-semibold text-green-600 dark:text-green-400 text-center">Backend & Database</h4>
-            <div className="h-16 overflow-hidden">
-              <LogoLoop
-                logos={[
-                  { node: <SiNodedotjs className="text-green-600" />, title: "Node.js", href: "https://nodejs.org" },
-                  { node: <SiPython className="text-blue-500" />, title: "Python", href: "https://python.org" },
-                  { node: <SiExpress className="text-gray-600" />, title: "Express.js" },
-                  { node: <SiFlask className="text-gray-800 dark:text-white" />, title: "Flask" },
-                  { node: <SiDjango className="text-green-700" />, title: "Django" },
-                  { node: <SiPostgresql className="text-blue-600" />, title: "PostgreSQL", href: "https://postgresql.org" },
-                  { node: <SiMongodb className="text-green-500" />, title: "MongoDB", href: "https://mongodb.com" },
-                  { node: <SiMysql className="text-orange-600" />, title: "MySQL" },
-                  { node: <SiRedis className="text-red-600" />, title: "Redis" },
-                  { node: <SiElasticsearch className="text-yellow-600" />, title: "Elasticsearch" }
-                ]}
-                speed={50}
-                direction="right"
-                logoHeight={32}
-                gap={40}
-                pauseOnHover={true}
-                scaleOnHover={true}
-                fadeOut={true}
-                fadeOutColor="transparent"
-                ariaLabel="Backend and database technologies"
-              />
-            </div>
-          </div>
-
-          {/* AI & Cloud Infrastructure */}
-          <div className="space-y-4">
-            <h4 className="text-lg font-semibold text-blue-600 dark:text-blue-400 text-center">AI & Cloud Infrastructure</h4>
-            <div className="h-16 overflow-hidden">
-              <LogoLoop
-                logos={[
-                  { node: <SiOpenai className="text-black dark:text-white" />, title: "OpenAI", href: "https://openai.com" },
-                  { node: <span className="text-orange-500 font-bold text-lg">AWS</span>, title: "AWS", href: "https://aws.amazon.com" },
-                  { node: <SiGooglecloud className="text-blue-500" />, title: "Google Cloud", href: "https://cloud.google.com" },
-                  { node: <SiDocker className="text-blue-600" />, title: "Docker", href: "https://docker.com" },
-                  { node: <SiKubernetes className="text-blue-700" />, title: "Kubernetes" },
-                  { node: <SiTerraform className="text-purple-600" />, title: "Terraform" },
-                  { node: <SiJenkins className="text-blue-800" />, title: "Jenkins" },
-                  { node: <SiGit className="text-orange-600" />, title: "Git" },
-                  { node: <SiGithub className="text-black dark:text-white" />, title: "GitHub", href: "https://github.com" },
-                  { node: <SiGitlab className="text-orange-600" />, title: "GitLab" },
-                  { node: <SiVercel className="text-black dark:text-white" />, title: "Vercel", href: "https://vercel.com" },
-                  { node: <SiNetlify className="text-teal-500" />, title: "Netlify", href: "https://netlify.com" }
-                ]}
-                speed={70}
-                direction="left"
-                logoHeight={32}
-                gap={40}
-                pauseOnHover={true}
-                scaleOnHover={true}
-                fadeOut={true}
-                fadeOutColor="transparent"
-                ariaLabel="AI and cloud infrastructure technologies"
-              />
-            </div>
-          </div>
-
-          {/* Business & Automation Tools */}
-          <div className="space-y-4">
-            <h4 className="text-lg font-semibold text-fuchsia-600 dark:text-fuchsia-400 text-center">Business & Automation</h4>
-            <div className="h-16 overflow-hidden">
-              <LogoLoop
-                logos={[
-                  { node: <SiZapier className="text-orange-500" />, title: "Zapier", href: "https://zapier.com" },
-                  { node: <SiHubspot className="text-orange-600" />, title: "HubSpot", href: "https://hubspot.com" },
-                  { node: <SiSalesforce className="text-blue-500" />, title: "Salesforce", href: "https://salesforce.com" },
-                  { node: <SiShopify className="text-green-600" />, title: "Shopify", href: "https://shopify.com" },
-                  { node: <SiWordpress className="text-blue-700" />, title: "WordPress", href: "https://wordpress.org" },
-                  { node: <SiStripe className="text-purple-600" />, title: "Stripe", href: "https://stripe.com" },
-                  { node: <SiPaypal className="text-blue-600" />, title: "PayPal", href: "https://paypal.com" },
-                  { node: <SiNotion className="text-black dark:text-white" />, title: "Notion", href: "https://notion.so" },
-                  { node: <SiSlack className="text-purple-600" />, title: "Slack", href: "https://slack.com" },
-                  { node: <SiAdobephotoshop className="text-blue-700" />, title: "Photoshop" },
-                  { node: <SiAdobeillustrator className="text-orange-600" />, title: "Illustrator" },
-                  { node: <SiCanva className="text-purple-500" />, title: "Canva", href: "https://canva.com" }
-                ]}
-                speed={55}
-                direction="right"
-                logoHeight={32}
-                gap={40}
-                pauseOnHover={true}
-                scaleOnHover={true}
-                fadeOut={true}
-                fadeOutColor="transparent"
-                ariaLabel="Business and automation tools"
+                ariaLabel="Complete technology stack"
               />
             </div>
           </div>
