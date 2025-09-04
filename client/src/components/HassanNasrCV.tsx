@@ -760,86 +760,22 @@ export default function HassanNasrCV() {
   }
   
   return (
-    <main className="relative min-h-screen bg-gradient-to-b from-violet-50 via-white to-white dark:from-black dark:via-zinc-950 dark:to-black text-gray-900 dark:text-gray-50">
+    <main className="relative min-h-screen bg-white dark:bg-black text-gray-900 dark:text-gray-50">
       {/* ANIMATED HERO BACKGROUND */}
       <div className="pointer-events-none absolute inset-0 -z-10 h-[70vh] overflow-hidden">
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${heroBackground})` }}
-        />
-        <AnimatedBackground />
-        <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-white/60 to-white dark:from-black/30 dark:via-black/60 dark:to-black" />
+        <div className="absolute inset-0 bg-gray-100 dark:bg-gray-900 flex items-center justify-center">
+          <div className="text-center p-8 bg-white/80 dark:bg-black/80 rounded-lg">
+            <div className="w-64 h-40 bg-gray-200 dark:bg-gray-700 rounded-lg mb-4 flex items-center justify-center">
+              <span className="text-gray-500 dark:text-gray-400 text-sm">Hero Background Image</span>
+            </div>
+            <p className="text-sm text-gray-600 dark:text-gray-400">Placeholder for hero section background</p>
+          </div>
+        </div>
       </div>
 
-      {/* 3D SCROLL-BASED ANIMATED OBJECTS */}
-      <div className="fixed inset-0 -z-5 overflow-hidden pointer-events-none">
-        {/* Floating geometric shapes */}
-        <motion.div
-          style={{ y: y1, rotate: rotate1, scale: scale1 }}
-          className="absolute top-20 left-10 w-8 h-8 border-2 border-violet-300/30 dark:border-violet-500/30 transform rotate-45"
-        />
-        <motion.div
-          style={{ y: y2, rotate: rotate2 }}
-          className="absolute top-40 right-20 w-6 h-6 bg-gradient-to-br from-blue-400/20 to-cyan-400/20 rounded-full"
-        />
-        <motion.div
-          style={{ y: y3, scale: scale2 }}
-          className="absolute top-80 left-1/4 w-4 h-16 bg-gradient-to-t from-purple-400/20 to-pink-400/20 rounded-full transform -rotate-12"
-        />
-        <motion.div
-          style={{ y: y1, rotate: rotate1 }}
-          className="absolute top-96 right-1/3 w-10 h-10 border border-fuchsia-300/30 dark:border-fuchsia-500/30 rounded-full"
-        />
-        <motion.div
-          style={{ y: y2, rotate: rotate2, scale: scale1 }}
-          className="absolute top-[60vh] left-12 w-12 h-2 bg-gradient-to-r from-emerald-400/20 to-teal-400/20 rounded-full"
-        />
-        <motion.div
-          style={{ y: y3, rotate: rotate1 }}
-          className="absolute top-[80vh] right-16 w-6 h-6 border-2 border-orange-300/30 dark:border-orange-500/30 transform rotate-12"
-        />
-        <motion.div
-          style={{ y: y1, scale: scale2 }}
-          className="absolute top-[100vh] left-1/3 w-8 h-8 bg-gradient-to-bl from-indigo-400/20 to-purple-400/20 rounded-full"
-        />
-        <motion.div
-          style={{ y: y2, rotate: rotate2 }}
-          className="absolute top-[120vh] right-10 w-14 h-1 bg-gradient-to-r from-rose-400/20 to-pink-400/20 rounded-full transform rotate-45"
-        />
-        <motion.div
-          style={{ y: y3, rotate: rotate1, scale: scale1 }}
-          className="absolute top-[140vh] left-20 w-5 h-12 bg-gradient-to-t from-yellow-400/20 to-amber-400/20 rounded-full transform -rotate-30"
-        />
-        <motion.div
-          style={{ y: y1, rotate: rotate2 }}
-          className="absolute top-[160vh] right-1/4 w-7 h-7 border border-cyan-300/30 dark:border-cyan-500/30 rounded-full transform rotate-45"
-        />
-        
-        {/* AI-themed floating icons */}
-        <motion.div
-          style={{ y: y2, rotate: rotate1, scale: scale2 }}
-          className="absolute top-[50vh] right-8 text-violet-400/30 dark:text-violet-500/30 text-2xl"
-        >
-          🤖
-        </motion.div>
-        <motion.div
-          style={{ y: y3, rotate: rotate2 }}
-          className="absolute top-[90vh] left-8 text-blue-400/30 dark:text-blue-500/30 text-xl"
-        >
-          ⚡
-        </motion.div>
-        <motion.div
-          style={{ y: y1, scale: scale1 }}
-          className="absolute top-[130vh] right-12 text-purple-400/30 dark:text-purple-500/30 text-2xl"
-        >
-          🎯
-        </motion.div>
-        <motion.div
-          style={{ y: y2, rotate: rotate1 }}
-          className="absolute top-[170vh] left-16 text-emerald-400/30 dark:text-emerald-500/30 text-xl"
-        >
-          🚀
-        </motion.div>
+      {/* Placeholder notification for removed animations */}
+      <div className="fixed top-4 right-4 z-50 bg-white/90 dark:bg-black/90 p-3 rounded-lg border border-gray-200 dark:border-gray-700 shadow-lg">
+        <div className="text-xs text-gray-500 dark:text-gray-400">Background animations removed</div>
       </div>
 
       {/* NAVBAR */}
@@ -1019,32 +955,19 @@ export default function HassanNasrCV() {
               }}
             />
 
-            <div className="relative aspect-square w-full overflow-hidden rounded-2xl border border-gray-200 dark:border-gray-800 bg-black" data-testid="card-focus">
-              {/* Hyperspeed Background */}
-              <Hyperspeed 
-                effectOptions={{
-                  colors: {
-                    roadColor: 0x080808,
-                    islandColor: 0x0a0a0a,
-                    background: 0x000000,
-                    shoulderLines: 0x131318,
-                    brokenLines: 0x131318,
-                    leftCars: [0xd856bf, 0x6750a2, 0xc247ac],
-                    rightCars: [0x03b3c3, 0x0e5ea5, 0x324555],
-                    sticks: 0x03b3c3
-                  }
-                }}
-              />
-              
-              {/* Centered Text Content */}
-              <div className="absolute inset-0 flex flex-col items-center justify-center text-center z-10 bg-black/20 backdrop-blur-sm">
+            <div className="relative aspect-square w-full overflow-hidden rounded-2xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900" data-testid="card-focus">
+              {/* Focus Section Placeholder */}
+              <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-8">
+                <div className="w-48 h-32 bg-gray-200 dark:bg-gray-700 rounded-lg mb-6 flex items-center justify-center">
+                  <span className="text-gray-500 dark:text-gray-400 text-sm">Focus Section Image</span>
+                </div>
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8 }}
                   className="max-w-xs"
                 >
-                  <h3 className="text-2xl font-bold text-white mb-4">Triangle of Power</h3>
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Triangle of Power</h3>
                   <div className="space-y-2 mb-6">
                     <motion.div
                       animate={{ 
@@ -1056,7 +979,7 @@ export default function HassanNasrCV() {
                         repeat: Infinity,
                         ease: "easeInOut" 
                       }}
-                      className="text-violet-400 font-semibold"
+                      className="text-violet-600 dark:text-violet-400 font-semibold"
                     >
                       AI
                     </motion.div>
@@ -1071,7 +994,7 @@ export default function HassanNasrCV() {
                         ease: "easeInOut",
                         delay: 0.7
                       }}
-                      className="text-fuchsia-400 font-semibold"
+                      className="text-fuchsia-600 dark:text-fuchsia-400 font-semibold"
                     >
                       Automation
                     </motion.div>
@@ -1086,12 +1009,12 @@ export default function HassanNasrCV() {
                         ease: "easeInOut",
                         delay: 1.4
                       }}
-                      className="text-blue-400 font-semibold"
+                      className="text-blue-600 dark:text-blue-400 font-semibold"
                     >
                       Product
                     </motion.div>
                   </div>
-                  <p className="text-gray-300 text-sm">
+                  <p className="text-gray-600 dark:text-gray-400 text-sm">
                     Clean architecture, measurable ROI, delightful UX
                   </p>
                 </motion.div>
@@ -1155,11 +1078,17 @@ export default function HassanNasrCV() {
         
         {/* Skills Summary */}
         <motion.div 
-          className="mt-12 p-6 bg-gradient-to-r from-violet-50 to-fuchsia-50 dark:from-violet-900/20 dark:to-fuchsia-900/20 rounded-2xl border border-gray-200 dark:border-gray-800"
+          className="mt-12 p-6 bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6 }}
         >
+          {/* Placeholder for skills infographic */}
+          <div className="mb-6 flex justify-center">
+            <div className="w-full max-w-lg h-40 bg-gray-200 dark:bg-gray-700 rounded-lg flex items-center justify-center">
+              <span className="text-gray-500 dark:text-gray-400 text-sm">Skills & Experience Infographic</span>
+            </div>
+          </div>
           <div className="text-center">
             <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4">Technical Expertise Overview</h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
@@ -1601,11 +1530,17 @@ export default function HassanNasrCV() {
         
         {/* Tools & Technologies */}
         <motion.div 
-          className="mt-12 p-6 bg-gradient-to-r from-violet-50 to-fuchsia-50 dark:from-violet-900/20 dark:to-fuchsia-900/20 rounded-2xl border border-gray-200 dark:border-gray-800"
+          className="mt-12 p-6 bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5 }}
         >
+          {/* Placeholder for brand design tools showcase */}
+          <div className="mb-6 flex justify-center">
+            <div className="w-full max-w-md h-32 bg-gray-200 dark:bg-gray-700 rounded-lg flex items-center justify-center">
+              <span className="text-gray-500 dark:text-gray-400 text-sm">Brand Design Tools Showcase</span>
+            </div>
+          </div>
           <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4 text-center">Technologies & Tools</h3>
           <div className="grid md:grid-cols-4 gap-4 text-sm">
             <div>
