@@ -21,7 +21,7 @@ import ecommerceImg from "@assets/generated_images/E-commerce_technology_illustr
 import aiAutomationImg from "@assets/generated_images/AI_automation_concept_art_540b5982.png";
 import digitalTransformImg from "@assets/generated_images/Digital_transformation_concept_3fe7574a.png";
 import travelTechImg from "@assets/generated_images/Travel_tech_illustration_4501efe1.png";
-import professionalHeadshot from "@assets/generated_images/Professional_headshot_placeholder_e18e2847.png";
+import professionalHeadshot from "@assets/Hassan (1)_1757014840713.jpeg";
 
 /**
  * Hassan Nasr — Advanced CV / Portfolio, single-file React component
