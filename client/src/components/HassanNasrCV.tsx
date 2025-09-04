@@ -22,6 +22,7 @@ import aiAutomationImg from "@assets/generated_images/AI_automation_concept_art_
 import digitalTransformImg from "@assets/generated_images/Digital_transformation_concept_3fe7574a.png";
 import travelTechImg from "@assets/generated_images/Travel_tech_illustration_4501efe1.png";
 import professionalHeadshot from "@assets/Hassan (1)_1757014840713.jpeg";
+import skillsInfographic from "@assets/generated_images/Technical_skills_infographic_visualization_9c1a056c.png";
 
 /**
  * Hassan Nasr — Advanced CV / Portfolio, single-file React component
@@ -773,10 +774,7 @@ export default function HassanNasrCV() {
         </div>
       </div>
 
-      {/* Placeholder notification for removed animations */}
-      <div className="fixed top-4 right-4 z-50 bg-white/90 dark:bg-black/90 p-3 rounded-lg border border-gray-200 dark:border-gray-700 shadow-lg">
-        <div className="text-xs text-gray-500 dark:text-gray-400">Background animations removed</div>
-      </div>
+      
 
       {/* NAVBAR */}
       <header className="sticky top-0 z-20 border-b border-transparent/10 backdrop-blur supports-[backdrop-filter]:bg-white/50 dark:supports-[backdrop-filter]:bg-black/30">
@@ -1083,10 +1081,14 @@ export default function HassanNasrCV() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6 }}
         >
-          {/* Placeholder for skills infographic */}
+          {/* Skills & Experience Infographic */}
           <div className="mb-6 flex justify-center">
-            <div className="w-full max-w-lg h-40 bg-gray-200 dark:bg-gray-700 rounded-lg flex items-center justify-center">
-              <span className="text-gray-500 dark:text-gray-400 text-sm">Skills & Experience Infographic</span>
+            <div className="w-full max-w-4xl rounded-lg overflow-hidden">
+              <img 
+                src={skillsInfographic} 
+                alt="Technical Skills & Experience Overview Infographic"
+                className="w-full h-auto object-cover"
+              />
             </div>
           </div>
           <div className="text-center">
