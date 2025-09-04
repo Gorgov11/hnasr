@@ -1,6 +1,17 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { motion, AnimatePresence, useScroll, useTransform, useInView } from "framer-motion";
 import { Mail, Github, Linkedin, MapPin, Download, Sun, Moon, ExternalLink, Phone, Menu, X } from "lucide-react";
+import { LogoLoop } from "./LogoLoop";
+import { 
+  SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiNodedotjs, SiPython, 
+  SiOpenai, SiMongodb, SiPostgresql, SiDocker, SiAws, SiGooglecloud,
+  SiFigma, SiAdobephotoshop, SiAdobeillustrator, SiCanva, SiNotion,
+  SiSlack, SiZapier, SiHubspot, SiSalesforce, SiShopify, SiWordpress,
+  SiStripe, SiPaypal, SiGit, SiGithub, SiVercel, SiNetlify, SiFramer,
+  SiJavascript, SiHtml5, SiCss3, SiBootstrap, SiVuedotjs, SiAngular,
+  SiExpress, SiFlask, SiDjango, SiMysql, SiRedis, SiElasticsearch,
+  SiKubernetes, SiTerraform, SiJenkins, SiGitlab, SiLinux, SiUbuntu
+} from 'react-icons/si';
 
 // Import generated images
 import heroBackground from "@assets/generated_images/AI_tech_portfolio_background_ab8943e0.png";
@@ -1355,6 +1366,147 @@ export default function HassanNasrCV() {
                 <div className="text-2xl font-bold text-orange-600">25+</div>
                 <div className="text-gray-600 dark:text-gray-400">Creative & Marketing Tools</div>
               </div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Animated Tech Stack Showcase */}
+        <motion.div 
+          className="mt-16 space-y-8"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.8 }}
+        >
+          <div className="text-center">
+            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Technology Arsenal</h3>
+            <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+              A curated selection of the tools and technologies I leverage to build scalable, AI-powered solutions
+            </p>
+          </div>
+
+          {/* Frontend & Design */}
+          <div className="space-y-4">
+            <h4 className="text-lg font-semibold text-violet-600 dark:text-violet-400 text-center">Frontend & Design</h4>
+            <div className="h-16 bg-white/60 dark:bg-white/5 rounded-2xl border border-gray-200 dark:border-gray-800 overflow-hidden">
+              <LogoLoop
+                logos={[
+                  { node: <SiReact className="text-blue-500" />, title: "React", href: "https://react.dev" },
+                  { node: <SiNextdotjs className="text-black dark:text-white" />, title: "Next.js", href: "https://nextjs.org" },
+                  { node: <SiTypescript className="text-blue-600" />, title: "TypeScript", href: "https://www.typescriptlang.org" },
+                  { node: <SiJavascript className="text-yellow-500" />, title: "JavaScript" },
+                  { node: <SiTailwindcss className="text-cyan-500" />, title: "Tailwind CSS", href: "https://tailwindcss.com" },
+                  { node: <SiBootstrap className="text-purple-600" />, title: "Bootstrap" },
+                  { node: <SiHtml5 className="text-orange-600" />, title: "HTML5" },
+                  { node: <SiCss3 className="text-blue-500" />, title: "CSS3" },
+                  { node: <SiVuedotjs className="text-green-500" />, title: "Vue.js" },
+                  { node: <SiAngular className="text-red-600" />, title: "Angular" },
+                  { node: <SiFigma className="text-purple-500" />, title: "Figma", href: "https://figma.com" },
+                  { node: <SiFramer className="text-black dark:text-white" />, title: "Framer" }
+                ]}
+                speed={60}
+                direction="left"
+                logoHeight={32}
+                gap={40}
+                pauseOnHover={true}
+                scaleOnHover={true}
+                fadeOut={true}
+                fadeOutColor="transparent"
+                ariaLabel="Frontend and design technologies"
+              />
+            </div>
+          </div>
+
+          {/* Backend & Database */}
+          <div className="space-y-4">
+            <h4 className="text-lg font-semibold text-green-600 dark:text-green-400 text-center">Backend & Database</h4>
+            <div className="h-16 bg-white/60 dark:bg-white/5 rounded-2xl border border-gray-200 dark:border-gray-800 overflow-hidden">
+              <LogoLoop
+                logos={[
+                  { node: <SiNodedotjs className="text-green-600" />, title: "Node.js", href: "https://nodejs.org" },
+                  { node: <SiPython className="text-blue-500" />, title: "Python", href: "https://python.org" },
+                  { node: <SiExpress className="text-gray-600" />, title: "Express.js" },
+                  { node: <SiFlask className="text-gray-800 dark:text-white" />, title: "Flask" },
+                  { node: <SiDjango className="text-green-700" />, title: "Django" },
+                  { node: <SiPostgresql className="text-blue-600" />, title: "PostgreSQL", href: "https://postgresql.org" },
+                  { node: <SiMongodb className="text-green-500" />, title: "MongoDB", href: "https://mongodb.com" },
+                  { node: <SiMysql className="text-orange-600" />, title: "MySQL" },
+                  { node: <SiRedis className="text-red-600" />, title: "Redis" },
+                  { node: <SiElasticsearch className="text-yellow-600" />, title: "Elasticsearch" }
+                ]}
+                speed={50}
+                direction="right"
+                logoHeight={32}
+                gap={40}
+                pauseOnHover={true}
+                scaleOnHover={true}
+                fadeOut={true}
+                fadeOutColor="transparent"
+                ariaLabel="Backend and database technologies"
+              />
+            </div>
+          </div>
+
+          {/* AI & Cloud Infrastructure */}
+          <div className="space-y-4">
+            <h4 className="text-lg font-semibold text-blue-600 dark:text-blue-400 text-center">AI & Cloud Infrastructure</h4>
+            <div className="h-16 bg-white/60 dark:bg-white/5 rounded-2xl border border-gray-200 dark:border-gray-800 overflow-hidden">
+              <LogoLoop
+                logos={[
+                  { node: <SiOpenai className="text-black dark:text-white" />, title: "OpenAI", href: "https://openai.com" },
+                  { node: <SiAws className="text-orange-500" />, title: "AWS", href: "https://aws.amazon.com" },
+                  { node: <SiGooglecloud className="text-blue-500" />, title: "Google Cloud", href: "https://cloud.google.com" },
+                  { node: <SiDocker className="text-blue-600" />, title: "Docker", href: "https://docker.com" },
+                  { node: <SiKubernetes className="text-blue-700" />, title: "Kubernetes" },
+                  { node: <SiTerraform className="text-purple-600" />, title: "Terraform" },
+                  { node: <SiJenkins className="text-blue-800" />, title: "Jenkins" },
+                  { node: <SiGit className="text-orange-600" />, title: "Git" },
+                  { node: <SiGithub className="text-black dark:text-white" />, title: "GitHub", href: "https://github.com" },
+                  { node: <SiGitlab className="text-orange-600" />, title: "GitLab" },
+                  { node: <SiVercel className="text-black dark:text-white" />, title: "Vercel", href: "https://vercel.com" },
+                  { node: <SiNetlify className="text-teal-500" />, title: "Netlify", href: "https://netlify.com" }
+                ]}
+                speed={70}
+                direction="left"
+                logoHeight={32}
+                gap={40}
+                pauseOnHover={true}
+                scaleOnHover={true}
+                fadeOut={true}
+                fadeOutColor="transparent"
+                ariaLabel="AI and cloud infrastructure technologies"
+              />
+            </div>
+          </div>
+
+          {/* Business & Automation Tools */}
+          <div className="space-y-4">
+            <h4 className="text-lg font-semibold text-fuchsia-600 dark:text-fuchsia-400 text-center">Business & Automation</h4>
+            <div className="h-16 bg-white/60 dark:bg-white/5 rounded-2xl border border-gray-200 dark:border-gray-800 overflow-hidden">
+              <LogoLoop
+                logos={[
+                  { node: <SiZapier className="text-orange-500" />, title: "Zapier", href: "https://zapier.com" },
+                  { node: <SiHubspot className="text-orange-600" />, title: "HubSpot", href: "https://hubspot.com" },
+                  { node: <SiSalesforce className="text-blue-500" />, title: "Salesforce", href: "https://salesforce.com" },
+                  { node: <SiShopify className="text-green-600" />, title: "Shopify", href: "https://shopify.com" },
+                  { node: <SiWordpress className="text-blue-700" />, title: "WordPress", href: "https://wordpress.org" },
+                  { node: <SiStripe className="text-purple-600" />, title: "Stripe", href: "https://stripe.com" },
+                  { node: <SiPaypal className="text-blue-600" />, title: "PayPal", href: "https://paypal.com" },
+                  { node: <SiNotion className="text-black dark:text-white" />, title: "Notion", href: "https://notion.so" },
+                  { node: <SiSlack className="text-purple-600" />, title: "Slack", href: "https://slack.com" },
+                  { node: <SiAdobephotoshop className="text-blue-700" />, title: "Photoshop" },
+                  { node: <SiAdobeillustrator className="text-orange-600" />, title: "Illustrator" },
+                  { node: <SiCanva className="text-purple-500" />, title: "Canva", href: "https://canva.com" }
+                ]}
+                speed={55}
+                direction="right"
+                logoHeight={32}
+                gap={40}
+                pauseOnHover={true}
+                scaleOnHover={true}
+                fadeOut={true}
+                fadeOutColor="transparent"
+                ariaLabel="Business and automation tools"
+              />
             </div>
           </div>
         </motion.div>
