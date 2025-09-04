@@ -1119,75 +1119,126 @@ export default function HassanNasrCV() {
                       <motion.div 
                         className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-2"
                         animate={{ 
-                          y: [-2, -8, -2],
-                          scale: [1, 1.1, 1] 
+                          y: [-2, -6, -2],
+                          scale: [1, 1.05, 1] 
                         }}
                         transition={{ 
-                          duration: 2, 
+                          duration: 1.2, 
                           repeat: Infinity,
-                          ease: "easeInOut" 
+                          ease: [0.25, 0.46, 0.45, 0.94] 
                         }}
                       >
                         <div className="text-center">
-                          <div className="text-xl">🤖</div>
-                          <div className="text-xs font-bold text-violet-600 dark:text-violet-400 mt-1">AI</div>
+                          <div className="text-xs font-bold text-violet-600 dark:text-violet-400">AI</div>
                         </div>
                       </motion.div>
                       
                       <motion.div 
                         className="absolute bottom-0 left-3 transform -translate-y-4"
                         animate={{ 
-                          x: [0, -4, 0],
-                          scale: [1, 1.1, 1] 
+                          x: [0, -2, 0],
+                          scale: [1, 1.05, 1] 
                         }}
                         transition={{ 
-                          duration: 2, 
+                          duration: 1.2, 
                           repeat: Infinity,
-                          ease: "easeInOut",
-                          delay: 0.7 
+                          ease: [0.25, 0.46, 0.45, 0.94],
+                          delay: 0.4 
                         }}
                       >
                         <div className="text-center">
-                          <div className="text-xl">⚡</div>
-                          <div className="text-xs font-bold text-fuchsia-600 dark:text-fuchsia-400 mt-1">Automation</div>
+                          <div className="text-xs font-bold text-fuchsia-600 dark:text-fuchsia-400">Automation</div>
                         </div>
                       </motion.div>
                       
                       <motion.div 
                         className="absolute bottom-0 right-3 transform -translate-y-4"
                         animate={{ 
-                          x: [0, 4, 0],
-                          scale: [1, 1.1, 1] 
+                          x: [0, 2, 0],
+                          scale: [1, 1.05, 1] 
                         }}
                         transition={{ 
-                          duration: 2, 
+                          duration: 1.2, 
                           repeat: Infinity,
-                          ease: "easeInOut",
-                          delay: 1.4 
+                          ease: [0.25, 0.46, 0.45, 0.94],
+                          delay: 0.8 
                         }}
                       >
                         <div className="text-center">
-                          <div className="text-xl">🎯</div>
-                          <div className="text-xs font-bold text-blue-600 dark:text-blue-400 mt-1">Product</div>
+                          <div className="text-xs font-bold text-blue-600 dark:text-blue-400">Product</div>
                         </div>
                       </motion.div>
                       
-                      {/* Center Power Core */}
+                      {/* Heartbeat Center Core */}
                       <motion.div 
                         className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
                         animate={{ 
-                          scale: [1, 1.3, 1],
-                          rotate: [0, 180, 360]
+                          scale: [1, 1.4, 1.2, 1.6, 1],
                         }}
                         transition={{ 
-                          duration: 4, 
+                          duration: 1.2, 
                           repeat: Infinity,
-                          ease: "easeInOut" 
+                          ease: [0.25, 0.46, 0.45, 0.94],
+                          times: [0, 0.1, 0.2, 0.3, 1]
                         }}
                       >
-                        <div className="w-8 h-8 rounded-full bg-gradient-to-r from-violet-500 via-fuchsia-500 to-blue-500 opacity-70 shadow-lg"></div>
-                        <div className="absolute inset-0 w-8 h-8 rounded-full bg-gradient-to-r from-violet-400 via-fuchsia-400 to-blue-400 opacity-50 animate-pulse"></div>
+                        <div className="w-6 h-6 rounded-full bg-gradient-to-r from-violet-500 via-fuchsia-500 to-blue-500 opacity-80 shadow-lg"></div>
+                        <div className="absolute inset-0 w-6 h-6 rounded-full bg-gradient-to-r from-violet-400 via-fuchsia-400 to-blue-400 opacity-60"></div>
                       </motion.div>
+                      
+                      {/* Heartbeat Connecting Lines */}
+                      <svg className="absolute inset-0 w-full h-full pointer-events-none">
+                        {/* Line from center to AI (top) */}
+                        <motion.line 
+                          x1="100" y1="100" x2="100" y2="20"
+                          stroke="rgb(139, 92, 246)" 
+                          strokeWidth="2" 
+                          animate={{
+                            strokeOpacity: [0.3, 1, 0.7, 1, 0.3],
+                            strokeWidth: [1.5, 3, 2, 3, 1.5]
+                          }}
+                          transition={{
+                            duration: 1.2,
+                            repeat: Infinity,
+                            ease: [0.25, 0.46, 0.45, 0.94],
+                            times: [0, 0.1, 0.2, 0.3, 1]
+                          }}
+                        />
+                        {/* Line from center to Automation (bottom left) */}
+                        <motion.line 
+                          x1="100" y1="100" x2="30" y2="160"
+                          stroke="rgb(236, 72, 153)" 
+                          strokeWidth="2" 
+                          animate={{
+                            strokeOpacity: [0.3, 1, 0.7, 1, 0.3],
+                            strokeWidth: [1.5, 3, 2, 3, 1.5]
+                          }}
+                          transition={{
+                            duration: 1.2,
+                            repeat: Infinity,
+                            ease: [0.25, 0.46, 0.45, 0.94],
+                            times: [0, 0.1, 0.2, 0.3, 1],
+                            delay: 0.4
+                          }}
+                        />
+                        {/* Line from center to Product (bottom right) */}
+                        <motion.line 
+                          x1="100" y1="100" x2="170" y2="160"
+                          stroke="rgb(59, 130, 246)" 
+                          strokeWidth="2" 
+                          animate={{
+                            strokeOpacity: [0.3, 1, 0.7, 1, 0.3],
+                            strokeWidth: [1.5, 3, 2, 3, 1.5]
+                          }}
+                          transition={{
+                            duration: 1.2,
+                            repeat: Infinity,
+                            ease: [0.25, 0.46, 0.45, 0.94],
+                            times: [0, 0.1, 0.2, 0.3, 1],
+                            delay: 0.8
+                          }}
+                        />
+                      </svg>
                     </div>
                   </motion.div>
                   
