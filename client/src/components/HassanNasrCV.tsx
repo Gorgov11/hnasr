@@ -3,6 +3,7 @@ import { motion, AnimatePresence, useScroll, useTransform, useInView } from "fra
 import { Mail, Github, Linkedin, MapPin, Download, Sun, Moon, ExternalLink, Phone, Menu, X } from "lucide-react";
 import { LogoLoop } from "./LogoLoop";
 import MagicBento from "./MagicBento";
+import Hyperspeed from "./Hyperspeed";
 import { 
   SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiNodedotjs, SiPython, 
   SiOpenai, SiMongodb, SiPostgresql, SiDocker, SiAwslambda, SiGooglecloud,
@@ -1018,286 +1019,84 @@ export default function HassanNasrCV() {
               }}
             />
 
-            <MagicBento
-              textAutoHide={true}
-              enableStars={true}
-              enableSpotlight={true}
-              enableBorderGlow={true}
-              enableTilt={true}
-              enableMagnetism={true}
-              clickEffect={true}
-              spotlightRadius={300}
-              particleCount={12}
-              glowColor="139, 92, 246"
-              className="aspect-square w-full p-6"
-              data-testid="card-focus"
-            >
-              <div className="grid h-full place-items-center text-center relative">
-                {/* 3D AI Triangle of Power */}
-                <div className="relative w-56 h-56">
-                  {/* Triangle Base */}
-                  <motion.div
-                    className="absolute inset-0"
-                    animate={{ 
-                      rotateY: [0, 360],
-                    }}
-                    transition={{ 
-                      duration: 20, 
-                      repeat: Infinity,
-                      ease: "linear" 
-                    }}
-                    style={{
-                      transformStyle: "preserve-3d",
-                      perspective: "1000px"
-                    }}
-                  >
-                    {/* Triangle Outline */}
-                    <div className="relative w-full h-full">
-                      {/* Triangle wireframe */}
-                      <svg 
-                        className="absolute inset-0 w-full h-full" 
-                        viewBox="0 0 200 200" 
-                        style={{ transform: "rotateX(10deg)" }}
-                      >
-                        <defs>
-                          <linearGradient id="triangleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stopColor="rgb(139, 92, 246)" stopOpacity="0.6" />
-                            <stop offset="50%" stopColor="rgb(236, 72, 153)" stopOpacity="0.4" />
-                            <stop offset="100%" stopColor="rgb(59, 130, 246)" stopOpacity="0.6" />
-                          </linearGradient>
-                          <filter id="glow">
-                            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-                            <feMerge>
-                              <feMergeNode in="coloredBlur"/>
-                              <feMergeNode in="SourceGraphic"/>
-                            </feMerge>
-                          </filter>
-                        </defs>
-                        
-                        {/* Main Triangle */}
-                        <motion.path 
-                          d="M100 20 L170 160 L30 160 Z" 
-                          fill="url(#triangleGradient)"
-                          stroke="rgb(139, 92, 246)"
-                          strokeWidth="2"
-                          filter="url(#glow)"
-                          animate={{
-                            strokeOpacity: [0.3, 0.8, 0.3],
-                            fillOpacity: [0.1, 0.3, 0.1]
-                          }}
-                          transition={{
-                            duration: 3,
-                            repeat: Infinity,
-                            ease: "easeInOut"
-                          }}
-                        />
-                        
-                        {/* Inner Triangle Lines */}
-                        <motion.line 
-                          x1="100" y1="20" x2="100" y2="140"
-                          stroke="rgb(236, 72, 153)" 
-                          strokeWidth="1.5" 
-                          strokeOpacity="0.5"
-                          animate={{
-                            strokeOpacity: [0.2, 0.7, 0.2]
-                          }}
-                          transition={{
-                            duration: 2.5,
-                            repeat: Infinity,
-                            ease: "easeInOut",
-                            delay: 0.5
-                          }}
-                        />
-                        <motion.line 
-                          x1="65" y1="140" x2="135" y2="140"
-                          stroke="rgb(59, 130, 246)" 
-                          strokeWidth="1.5" 
-                          strokeOpacity="0.5"
-                          animate={{
-                            strokeOpacity: [0.2, 0.7, 0.2]
-                          }}
-                          transition={{
-                            duration: 2.5,
-                            repeat: Infinity,
-                            ease: "easeInOut",
-                            delay: 1
-                          }}
-                        />
-                        <motion.line 
-                          x1="85" y1="80" x2="115" y2="80"
-                          stroke="rgb(139, 92, 246)" 
-                          strokeWidth="1.5" 
-                          strokeOpacity="0.5"
-                          animate={{
-                            strokeOpacity: [0.2, 0.7, 0.2]
-                          }}
-                          transition={{
-                            duration: 2.5,
-                            repeat: Infinity,
-                            ease: "easeInOut",
-                            delay: 1.5
-                          }}
-                        />
-                      </svg>
-                      
-                      {/* Corner Labels */}
-                      <motion.div 
-                        className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-2"
-                        animate={{ 
-                          y: [-2, -6, -2],
-                          scale: [1, 1.05, 1] 
-                        }}
-                        transition={{ 
-                          duration: 1.2, 
-                          repeat: Infinity,
-                          ease: [0.25, 0.46, 0.45, 0.94] 
-                        }}
-                      >
-                        <div className="text-center">
-                          <div className="text-xs font-bold text-violet-600 dark:text-violet-400">AI</div>
-                        </div>
-                      </motion.div>
-                      
-                      <motion.div 
-                        className="absolute bottom-0 left-3 transform -translate-y-4"
-                        animate={{ 
-                          x: [0, -2, 0],
-                          scale: [1, 1.05, 1] 
-                        }}
-                        transition={{ 
-                          duration: 1.2, 
-                          repeat: Infinity,
-                          ease: [0.25, 0.46, 0.45, 0.94],
-                          delay: 0.4 
-                        }}
-                      >
-                        <div className="text-center">
-                          <div className="text-xs font-bold text-fuchsia-600 dark:text-fuchsia-400">Automation</div>
-                        </div>
-                      </motion.div>
-                      
-                      <motion.div 
-                        className="absolute bottom-0 right-3 transform -translate-y-4"
-                        animate={{ 
-                          x: [0, 2, 0],
-                          scale: [1, 1.05, 1] 
-                        }}
-                        transition={{ 
-                          duration: 1.2, 
-                          repeat: Infinity,
-                          ease: [0.25, 0.46, 0.45, 0.94],
-                          delay: 0.8 
-                        }}
-                      >
-                        <div className="text-center">
-                          <div className="text-xs font-bold text-blue-600 dark:text-blue-400">Product</div>
-                        </div>
-                      </motion.div>
-                      
-                      {/* Heartbeat Center Core */}
-                      <motion.div 
-                        className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
-                        animate={{ 
-                          scale: [1, 1.4, 1.2, 1.6, 1],
-                        }}
-                        transition={{ 
-                          duration: 1.2, 
-                          repeat: Infinity,
-                          ease: [0.25, 0.46, 0.45, 0.94],
-                          times: [0, 0.1, 0.2, 0.3, 1]
-                        }}
-                      >
-                        <div className="w-6 h-6 rounded-full bg-gradient-to-r from-violet-500 via-fuchsia-500 to-blue-500 opacity-80 shadow-lg"></div>
-                        <div className="absolute inset-0 w-6 h-6 rounded-full bg-gradient-to-r from-violet-400 via-fuchsia-400 to-blue-400 opacity-60"></div>
-                      </motion.div>
-                      
-                      {/* Heartbeat Connecting Lines */}
-                      <svg className="absolute inset-0 w-full h-full pointer-events-none">
-                        {/* Line from center to AI (top) */}
-                        <motion.line 
-                          x1="100" y1="100" x2="100" y2="20"
-                          stroke="rgb(139, 92, 246)" 
-                          strokeWidth="2" 
-                          animate={{
-                            strokeOpacity: [0.3, 1, 0.7, 1, 0.3],
-                            strokeWidth: [1.5, 3, 2, 3, 1.5]
-                          }}
-                          transition={{
-                            duration: 1.2,
-                            repeat: Infinity,
-                            ease: [0.25, 0.46, 0.45, 0.94],
-                            times: [0, 0.1, 0.2, 0.3, 1]
-                          }}
-                        />
-                        {/* Line from center to Automation (bottom left) */}
-                        <motion.line 
-                          x1="100" y1="100" x2="30" y2="160"
-                          stroke="rgb(236, 72, 153)" 
-                          strokeWidth="2" 
-                          animate={{
-                            strokeOpacity: [0.3, 1, 0.7, 1, 0.3],
-                            strokeWidth: [1.5, 3, 2, 3, 1.5]
-                          }}
-                          transition={{
-                            duration: 1.2,
-                            repeat: Infinity,
-                            ease: [0.25, 0.46, 0.45, 0.94],
-                            times: [0, 0.1, 0.2, 0.3, 1],
-                            delay: 0.4
-                          }}
-                        />
-                        {/* Line from center to Product (bottom right) */}
-                        <motion.line 
-                          x1="100" y1="100" x2="170" y2="160"
-                          stroke="rgb(59, 130, 246)" 
-                          strokeWidth="2" 
-                          animate={{
-                            strokeOpacity: [0.3, 1, 0.7, 1, 0.3],
-                            strokeWidth: [1.5, 3, 2, 3, 1.5]
-                          }}
-                          transition={{
-                            duration: 1.2,
-                            repeat: Infinity,
-                            ease: [0.25, 0.46, 0.45, 0.94],
-                            times: [0, 0.1, 0.2, 0.3, 1],
-                            delay: 0.8
-                          }}
-                        />
-                      </svg>
-                    </div>
-                  </motion.div>
-                  
-                  {/* Floating particles around triangle */}
-                  {Array.from({ length: 6 }).map((_, i) => (
+            <div className="relative aspect-square w-full overflow-hidden rounded-2xl border border-gray-200 dark:border-gray-800 bg-black" data-testid="card-focus">
+              {/* Hyperspeed Background */}
+              <Hyperspeed 
+                effectOptions={{
+                  colors: {
+                    roadColor: 0x080808,
+                    islandColor: 0x0a0a0a,
+                    background: 0x000000,
+                    shoulderLines: 0x131318,
+                    brokenLines: 0x131318,
+                    leftCars: [0xd856bf, 0x6750a2, 0xc247ac],
+                    rightCars: [0x03b3c3, 0x0e5ea5, 0x324555],
+                    sticks: 0x03b3c3
+                  }
+                }}
+              />
+              
+              {/* Centered Text Content */}
+              <div className="absolute inset-0 flex flex-col items-center justify-center text-center z-10 bg-black/20 backdrop-blur-sm">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8 }}
+                  className="max-w-xs"
+                >
+                  <h3 className="text-2xl font-bold text-white mb-4">Triangle of Power</h3>
+                  <div className="space-y-2 mb-6">
                     <motion.div
-                      key={i}
-                      className="absolute w-1 h-1 bg-violet-400/60 rounded-full"
-                      style={{
-                        left: `${20 + (i * 60) % 160}px`,
-                        top: `${30 + (i * 40) % 120}px`
+                      animate={{ 
+                        scale: [1, 1.1, 1],
+                        opacity: [0.7, 1, 0.7]
                       }}
-                      animate={{
-                        y: [0, -20, 0],
-                        opacity: [0.3, 1, 0.3],
-                        scale: [0.5, 1.2, 0.5]
+                      transition={{ 
+                        duration: 2, 
+                        repeat: Infinity,
+                        ease: "easeInOut" 
                       }}
-                      transition={{
-                        duration: 3 + (i * 0.5),
+                      className="text-violet-400 font-semibold"
+                    >
+                      AI
+                    </motion.div>
+                    <motion.div
+                      animate={{ 
+                        scale: [1, 1.1, 1],
+                        opacity: [0.7, 1, 0.7]
+                      }}
+                      transition={{ 
+                        duration: 2, 
                         repeat: Infinity,
                         ease: "easeInOut",
-                        delay: i * 0.5
+                        delay: 0.7
                       }}
-                    />
-                  ))}
-                </div>
-                
-                {/* Text Content Below Triangle */}
-                <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center">
-                  <p className="text-xs uppercase tracking-[0.25em] text-gray-500 dark:text-gray-400 mb-2">Triangle of Power</p>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">Clean architecture, measurable ROI, delightful UX</p>
-                </div>
+                      className="text-fuchsia-400 font-semibold"
+                    >
+                      Automation
+                    </motion.div>
+                    <motion.div
+                      animate={{ 
+                        scale: [1, 1.1, 1],
+                        opacity: [0.7, 1, 0.7]
+                      }}
+                      transition={{ 
+                        duration: 2, 
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                        delay: 1.4
+                      }}
+                      className="text-blue-400 font-semibold"
+                    >
+                      Product
+                    </motion.div>
+                  </div>
+                  <p className="text-gray-300 text-sm">
+                    Clean architecture, measurable ROI, delightful UX
+                  </p>
+                </motion.div>
               </div>
-            </MagicBento>
+            </div>
           </div>
         </div>
       </section>
