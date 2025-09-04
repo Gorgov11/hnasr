@@ -1401,7 +1401,7 @@ export default function HassanNasrCV() {
           {/* Frontend & Design */}
           <div className="space-y-4">
             <h4 className="text-lg font-semibold text-violet-600 dark:text-violet-400 text-center">Frontend & Design</h4>
-            <div className="h-16 bg-white/60 dark:bg-white/5 rounded-2xl border border-gray-200 dark:border-gray-800 overflow-hidden">
+            <div className="h-16 overflow-hidden">
               <LogoLoop
                 logos={[
                   { node: <SiReact className="text-blue-500" />, title: "React", href: "https://react.dev" },
@@ -1433,7 +1433,7 @@ export default function HassanNasrCV() {
           {/* Backend & Database */}
           <div className="space-y-4">
             <h4 className="text-lg font-semibold text-green-600 dark:text-green-400 text-center">Backend & Database</h4>
-            <div className="h-16 bg-white/60 dark:bg-white/5 rounded-2xl border border-gray-200 dark:border-gray-800 overflow-hidden">
+            <div className="h-16 overflow-hidden">
               <LogoLoop
                 logos={[
                   { node: <SiNodedotjs className="text-green-600" />, title: "Node.js", href: "https://nodejs.org" },
@@ -1463,7 +1463,7 @@ export default function HassanNasrCV() {
           {/* AI & Cloud Infrastructure */}
           <div className="space-y-4">
             <h4 className="text-lg font-semibold text-blue-600 dark:text-blue-400 text-center">AI & Cloud Infrastructure</h4>
-            <div className="h-16 bg-white/60 dark:bg-white/5 rounded-2xl border border-gray-200 dark:border-gray-800 overflow-hidden">
+            <div className="h-16 overflow-hidden">
               <LogoLoop
                 logos={[
                   { node: <SiOpenai className="text-black dark:text-white" />, title: "OpenAI", href: "https://openai.com" },
@@ -1495,7 +1495,7 @@ export default function HassanNasrCV() {
           {/* Business & Automation Tools */}
           <div className="space-y-4">
             <h4 className="text-lg font-semibold text-fuchsia-600 dark:text-fuchsia-400 text-center">Business & Automation</h4>
-            <div className="h-16 bg-white/60 dark:bg-white/5 rounded-2xl border border-gray-200 dark:border-gray-800 overflow-hidden">
+            <div className="h-16 overflow-hidden">
               <LogoLoop
                 logos={[
                   { node: <SiZapier className="text-orange-500" />, title: "Zapier", href: "https://zapier.com" },
