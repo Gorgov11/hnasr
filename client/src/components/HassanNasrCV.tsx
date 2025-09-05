@@ -694,7 +694,10 @@ export default function HassanNasrCV() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [chatOpen, setChatOpen] = useState(false);
   const [translationOpen, setTranslationOpen] = useState(false);
-  const [currentLanguage, setCurrentLanguage] = useState('en');
+  const [currentLanguage, setCurrentLanguage] = useState(() => {
+    const browserLang = navigator.language.split('-')[0];
+    return ['en', 'no', 'ar', 'sv'].includes(browserLang) ? browserLang : 'en';
+  });
   const [chatMessages, setChatMessages] = useState<Array<{role: 'user' | 'assistant', content: string}>>([]);
   const [chatInput, setChatInput] = useState('');
   const [isTranslating, setIsTranslating] = useState(false);
@@ -744,10 +747,53 @@ export default function HassanNasrCV() {
     }
   };
 
-  // Language change handler
+  // Language change handler with content translation
   const changeLanguage = async (lang: string) => {
     setCurrentLanguage(lang);
-    // Here you could translate the entire page content if needed
+    
+    if (lang !== 'en') {
+      setIsTranslating(true);
+      
+      try {
+        // Translate key sections
+        const sectionsToTranslate = [
+          { selector: '[data-translate]', isMultiple: true }
+        ];
+        
+        for (const section of sectionsToTranslate) {
+          if (section.isMultiple) {
+            const elements = document.querySelectorAll(section.selector);
+            for (let i = 0; i < elements.length; i++) {
+              const element = elements[i];
+              const originalText = element.getAttribute('data-original') || element.textContent;
+              
+              if (!element.getAttribute('data-original')) {
+                element.setAttribute('data-original', originalText || '');
+              }
+              
+              if (originalText) {
+                const translatedText = await translateText(originalText, lang);
+                element.textContent = translatedText;
+              }
+            }
+          }
+        }
+      } catch (error) {
+        console.error('Translation failed:', error);
+      } finally {
+        setIsTranslating(false);
+      }
+    } else {
+      // Restore original English text
+      const translatedElements = document.querySelectorAll('[data-original]');
+      for (let i = 0; i < translatedElements.length; i++) {
+        const element = translatedElements[i];
+        const originalText = element.getAttribute('data-original');
+        if (originalText) {
+          element.textContent = originalText;
+        }
+      }
+    }
   };
 
   // Enhanced PDF generation
@@ -950,6 +996,7 @@ export default function HassanNasrCV() {
               transition={{ delay: 0.08, duration: 0.6 }}
               className="mt-3 text-lg sm:text-xl text-gray-700 dark:text-gray-300"
               data-testid="text-hero-title"
+              data-translate
             >
               {PROFILE.title}
             </motion.p>
@@ -959,6 +1006,7 @@ export default function HassanNasrCV() {
               transition={{ delay: 0.12, duration: 0.6 }}
               className="mt-3 max-w-xl text-base text-gray-600 dark:text-gray-400"
               data-testid="text-hero-subtitle"
+              data-translate
             >
               {PROFILE.subtitle}
             </motion.p>
@@ -1123,7 +1171,7 @@ export default function HassanNasrCV() {
       <Section id="about" title="About" subtitle="Builder at the intersection of AI, product, and automation.">
         <div className="grid md:grid-cols-3 gap-8 items-center">
           <div className="md:col-span-2 prose prose-zinc max-w-none dark:prose-invert" data-testid="text-about-content">
-            <p>
+            <p data-translate>
               I'm an engineer and product builder with 15+ years across web, mobile, and data systems. I help teams ship
               pragmatic AI solutions—OCR → RAG → ERP/CRM automations—that reduce manual work and unlock new revenue.
               I value clear roadmaps, crisp interfaces, and measurable outcomes.
@@ -1156,7 +1204,7 @@ export default function HassanNasrCV() {
                 <div className="mb-4">
                   <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">{s.group}</h3>
                   {s.description && (
-                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">{s.description}</p>
+                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-4" data-translate>{s.description}</p>
                   )}
                 </div>
                 <div className="flex flex-wrap gap-2">
