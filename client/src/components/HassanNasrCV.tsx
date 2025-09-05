@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { motion, AnimatePresence, useScroll, useTransform, useInView } from "framer-motion";
-import { Mail, Github, Linkedin, MapPin, Download, Sun, Moon, ExternalLink, Phone, Menu, X } from "lucide-react";
+import { Mail, Github, Linkedin, MapPin, Download, Sun, Moon, ExternalLink, Phone, Menu, X, MessageCircle, Globe, Send } from "lucide-react";
 import { LogoLoop } from "./LogoLoop";
 import MagicBento from "./MagicBento";
 import Hyperspeed from "./Hyperspeed";
@@ -692,6 +692,103 @@ function ContactForm() {
 export default function HassanNasrCV() {
   const [theme, toggleTheme] = useTheme();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [chatOpen, setChatOpen] = useState(false);
+  const [translationOpen, setTranslationOpen] = useState(false);
+  const [currentLanguage, setCurrentLanguage] = useState('en');
+  const [chatMessages, setChatMessages] = useState<Array<{role: 'user' | 'assistant', content: string}>>([]);
+  const [chatInput, setChatInput] = useState('');
+  const [isTranslating, setIsTranslating] = useState(false);
+  const [isChatLoading, setIsChatLoading] = useState(false);
+
+  // Translation helper
+  const translateText = async (text: string, targetLang: string) => {
+    try {
+      setIsTranslating(true);
+      const response = await fetch('/api/translate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text, targetLanguage: targetLang })
+      });
+      const data = await response.json();
+      return data.translatedText;
+    } catch (error) {
+      console.error('Translation error:', error);
+      return text;
+    } finally {
+      setIsTranslating(false);
+    }
+  };
+
+  // Chat helper
+  const sendChatMessage = async () => {
+    if (!chatInput.trim()) return;
+    
+    const userMessage = chatInput.trim();
+    setChatInput('');
+    setChatMessages(prev => [...prev, { role: 'user', content: userMessage }]);
+    setIsChatLoading(true);
+
+    try {
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: userMessage })
+      });
+      const data = await response.json();
+      setChatMessages(prev => [...prev, { role: 'assistant', content: data.response }]);
+    } catch (error) {
+      console.error('Chat error:', error);
+      setChatMessages(prev => [...prev, { role: 'assistant', content: 'Sorry, I encountered an error. Please try again.' }]);
+    } finally {
+      setIsChatLoading(false);
+    }
+  };
+
+  // Language change handler
+  const changeLanguage = async (lang: string) => {
+    setCurrentLanguage(lang);
+    // Here you could translate the entire page content if needed
+  };
+
+  // Enhanced PDF generation
+  const generatePDF = async () => {
+    try {
+      // Extract text content from portfolio
+      const portfolioContent = document.querySelector('main')?.innerText || '';
+      
+      // Get AI-optimized content structure
+      const response = await fetch('/api/optimize-pdf', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ content: portfolioContent })
+      });
+      const data = await response.json();
+      
+      // Create a temporary div with optimized content for printing
+      const printDiv = document.createElement('div');
+      printDiv.innerHTML = `
+        <div style="font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px;">
+          <h1 style="text-align: center; color: #7c3aed;">Hassan Nasr - AI & Automation Architect</h1>
+          <div style="white-space: pre-wrap; line-height: 1.6;">${data.optimizedContent}</div>
+        </div>
+      `;
+      
+      // Replace current content temporarily
+      const originalContent = document.body.innerHTML;
+      document.body.innerHTML = printDiv.innerHTML;
+      
+      // Print
+      window.print();
+      
+      // Restore original content
+      document.body.innerHTML = originalContent;
+      
+    } catch (error) {
+      console.error('PDF generation error:', error);
+      // Fallback to regular print
+      window.print();
+    }
+  };
   const [isLoaded, setIsLoaded] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [viewMode, setViewMode] = useState<'grid' | 'timeline'>('grid');
@@ -1556,22 +1653,146 @@ export default function HassanNasrCV() {
             </div>
             <div className="mt-6">
               <button
-                onClick={() => window.print()}
+                onClick={generatePDF}
                 className="inline-flex items-center gap-2 rounded-xl border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm font-semibold hover:bg-white/60 dark:hover:bg-white/10"
                 data-testid="button-print"
               >
-                <Download size={18} /> Print / Save as PDF
+                <Download size={18} /> AI-Optimized PDF
               </button>
             </div>
           </Card>
         </div>
       </Section>
 
+      {/* FLOATING ACTION BUTTONS */}
+      <div className="fixed bottom-6 right-6 z-40 flex flex-col gap-3">
+        {/* Language Selector */}
+        <div className="relative">
+          <button
+            onClick={() => setTranslationOpen(!translationOpen)}
+            className="w-14 h-14 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-lg flex items-center justify-center transition-all"
+            data-testid="button-translate"
+          >
+            <Globe size={24} />
+          </button>
+          
+          {translationOpen && (
+            <div className="absolute bottom-16 right-0 bg-white dark:bg-gray-800 rounded-lg shadow-xl p-3 min-w-[120px]">
+              <div className="grid grid-cols-2 gap-2">
+                {[
+                  { code: 'en', name: '🇺🇸 EN' },
+                  { code: 'no', name: '🇳🇴 NO' },
+                  { code: 'ar', name: '🇸🇦 AR' },
+                  { code: 'sv', name: '🇸🇪 SV' }
+                ].map(lang => (
+                  <button
+                    key={lang.code}
+                    onClick={() => {
+                      changeLanguage(lang.code);
+                      setTranslationOpen(false);
+                    }}
+                    className={`px-3 py-2 text-xs rounded transition-all ${
+                      currentLanguage === lang.code 
+                        ? 'bg-blue-600 text-white' 
+                        : 'hover:bg-gray-100 dark:hover:bg-gray-700'
+                    }`}
+                  >
+                    {lang.name}
+                  </button>
+                ))}
+              </div>
+              {isTranslating && (
+                <div className="mt-2 text-xs text-center text-gray-500">
+                  Translating...
+                </div>
+              )}
+            </div>
+          )}
+        </div>
+
+        {/* Chat Button */}
+        <button
+          onClick={() => setChatOpen(!chatOpen)}
+          className="w-14 h-14 bg-violet-600 hover:bg-violet-700 text-white rounded-full shadow-lg flex items-center justify-center transition-all"
+          data-testid="button-chat"
+        >
+          <MessageCircle size={24} />
+        </button>
+      </div>
+
+      {/* CHAT MODAL */}
+      {chatOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+          <div className="absolute inset-0 bg-black/50" onClick={() => setChatOpen(false)} />
+          <div className="relative bg-white dark:bg-gray-900 rounded-lg shadow-xl w-full max-w-md h-[500px] flex flex-col">
+            <div className="p-4 border-b border-gray-200 dark:border-gray-700 flex items-center justify-between">
+              <h3 className="font-semibold">Chat with Hassan's AI Assistant</h3>
+              <button onClick={() => setChatOpen(false)} className="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300">
+                <X size={20} />
+              </button>
+            </div>
+            
+            <div className="flex-1 overflow-y-auto p-4 space-y-3">
+              {chatMessages.length === 0 && (
+                <div className="text-center text-gray-500 dark:text-gray-400 text-sm">
+                  Ask me anything about Hassan's experience, skills, or projects!
+                </div>
+              )}
+              
+              {chatMessages.map((msg, idx) => (
+                <div key={idx} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
+                  <div className={`max-w-[80%] p-3 rounded-lg text-sm ${
+                    msg.role === 'user' 
+                      ? 'bg-violet-600 text-white' 
+                      : 'bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100'
+                  }`}>
+                    {msg.content}
+                  </div>
+                </div>
+              ))}
+              
+              {isChatLoading && (
+                <div className="flex justify-start">
+                  <div className="bg-gray-100 dark:bg-gray-800 p-3 rounded-lg">
+                    <div className="flex gap-1">
+                      <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" />
+                      <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }} />
+                      <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }} />
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+            
+            <div className="p-4 border-t border-gray-200 dark:border-gray-700">
+              <div className="flex gap-2">
+                <input
+                  type="text"
+                  value={chatInput}
+                  onChange={(e) => setChatInput(e.target.value)}
+                  onKeyPress={(e) => e.key === 'Enter' && sendChatMessage()}
+                  placeholder="Ask about Hassan's experience..."
+                  className="flex-1 px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-sm"
+                  disabled={isChatLoading}
+                />
+                <button
+                  onClick={sendChatMessage}
+                  disabled={isChatLoading || !chatInput.trim()}
+                  className="px-4 py-2 bg-violet-600 text-white rounded-lg hover:bg-violet-700 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  <Send size={16} />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* FOOTER */}
       <footer className="border-t border-gray-200/70 dark:border-gray-800/70 py-10">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-5 text-xs text-gray-500">
           <p data-testid="text-footer-copyright">© {new Date().getFullYear()} {PROFILE.name}. All rights reserved.</p>
-          <p data-testid="text-footer-tech">Built with React • Tailwind • R3F • Framer Motion</p>
+          <p data-testid="text-footer-tech">Built with React • Tailwind • AI • Framer Motion</p>
         </div>
       </footer>
     </main>
