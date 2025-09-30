@@ -21,7 +21,7 @@ import ecommerceImg from "@assets/generated_images/E-commerce_technology_illustr
 import aiAutomationImg from "@assets/generated_images/AI_automation_concept_art_540b5982.png";
 import digitalTransformImg from "@assets/generated_images/Digital_transformation_concept_3fe7574a.png";
 import travelTechImg from "@assets/generated_images/Travel_tech_illustration_4501efe1.png";
-import professionalHeadshot from "@assets/Hassan (1)_1757014840713.jpeg";
+import professionalHeadshot from "@assets/image_1759269852629.png";
 import skillsInfographic from "@assets/generated_images/Technical_skills_infographic_visualization_9c1a056c.png";
 
 /**
@@ -1099,10 +1099,14 @@ export default function HassanNasrCV() {
             />
 
             <div className="relative aspect-square w-full overflow-hidden rounded-2xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900" data-testid="card-focus">
-              {/* Focus Section Placeholder */}
+              {/* Focus Section with Professional Headshot */}
               <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-8">
-                <div className="w-48 h-32 bg-gray-200 dark:bg-gray-700 rounded-lg mb-6 flex items-center justify-center">
-                  <span className="text-gray-500 dark:text-gray-400 text-sm">Focus Section Image</span>
+                <div className="w-48 h-48 rounded-2xl overflow-hidden mb-6">
+                  <img 
+                    src={professionalHeadshot} 
+                    alt="Hassan Nasr - AI & Automation Architect"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
