@@ -49,10 +49,10 @@ const PROFILE = {
 };
 
 const LINKS = {
-  email: "mailto:hello@yourdomain.com", // ← change
-  phone: "tel:+47XXXXXXXX", // ← change or remove button below
-  linkedin: "https://www.linkedin.com/in/your-handle", // ← change
-  github: "https://github.com/your-handle", // ← change
+  email: "mailto:hello@hnasr.com",
+  phone: "tel:+4792942017",
+  linkedin: "https://www.linkedin.com/in/hassan-o-nasr/",
+  github: "https://github.com/Gorgov11",
   resume: "https://hnasr.com/HassanNasr_CV.pdf",
 };
 
