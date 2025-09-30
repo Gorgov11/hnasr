@@ -53,7 +53,7 @@ const LINKS = {
   phone: "tel:+47XXXXXXXX", // ← change or remove button below
   linkedin: "https://www.linkedin.com/in/your-handle", // ← change
   github: "https://github.com/your-handle", // ← change
-  resume: "/HassanNasr_CV.pdf", // ← change or keep as placeholder
+  resume: "https://hnasr.com/HassanNasr_CV.pdf",
 };
 
 const SKILLS: Array<{ group: string; items: string[]; description?: string }> = [
