@@ -830,16 +830,17 @@ export default function HassanNasrCV() {
       printDiv.appendChild(heading);
       printDiv.appendChild(contentDiv);
       
-      // Replace current content temporarily
-      const originalContent = document.body.innerHTML;
+      // Replace current content temporarily - store DOM nodes, not HTML strings
+      const originalChildren = Array.from(document.body.childNodes);
       document.body.innerHTML = '';
       document.body.appendChild(printDiv);
       
       // Print
       window.print();
       
-      // Restore original content
-      document.body.innerHTML = originalContent;
+      // Restore original content safely using DOM nodes
+      document.body.innerHTML = '';
+      originalChildren.forEach(child => document.body.appendChild(child));
       
     } catch (error) {
       console.error('PDF generation error:', error);
