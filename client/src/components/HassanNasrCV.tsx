@@ -810,18 +810,30 @@ export default function HassanNasrCV() {
       });
       const data = await response.json();
       
-      // Create a temporary div with optimized content for printing
+      // Create a temporary div with optimized content for printing using safe DOM methods
       const printDiv = document.createElement('div');
-      printDiv.innerHTML = `
-        <div style="font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px;">
-          <h1 style="text-align: center; color: #7c3aed;">Hassan Nasr - AI & Automation Architect</h1>
-          <div style="white-space: pre-wrap; line-height: 1.6;">${data.optimizedContent}</div>
-        </div>
-      `;
+      printDiv.style.fontFamily = 'Arial, sans-serif';
+      printDiv.style.maxWidth = '800px';
+      printDiv.style.margin = '0 auto';
+      printDiv.style.padding = '20px';
+      
+      const heading = document.createElement('h1');
+      heading.style.textAlign = 'center';
+      heading.style.color = '#7c3aed';
+      heading.textContent = 'Hassan Nasr - AI & Automation Architect';
+      
+      const contentDiv = document.createElement('div');
+      contentDiv.style.whiteSpace = 'pre-wrap';
+      contentDiv.style.lineHeight = '1.6';
+      contentDiv.textContent = data.optimizedContent;
+      
+      printDiv.appendChild(heading);
+      printDiv.appendChild(contentDiv);
       
       // Replace current content temporarily
       const originalContent = document.body.innerHTML;
-      document.body.innerHTML = printDiv.innerHTML;
+      document.body.innerHTML = '';
+      document.body.appendChild(printDiv);
       
       // Print
       window.print();
