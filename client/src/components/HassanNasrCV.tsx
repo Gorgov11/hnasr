@@ -53,7 +53,7 @@ const LINKS = {
   phone: "tel:+4792942017",
   linkedin: "https://www.linkedin.com/in/hassan-o-nasr/",
   github: "https://github.com/Gorgov11",
-  resume: "https://hnasr.com/HassanNasr_CV.pdf",
+  resume: "/hassan-nasr-cv.pdf",
 };
 
 const SKILLS: Array<{ group: string; items: string[]; description?: string }> = [
