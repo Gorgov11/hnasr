@@ -920,14 +920,21 @@ export default function HassanNasrCV() {
     <main className="relative min-h-screen bg-white dark:bg-black text-gray-900 dark:text-gray-50">
       {/* ANIMATED HERO BACKGROUND */}
       <div className="pointer-events-none absolute inset-0 -z-10 h-[70vh] overflow-hidden">
-        <div className="absolute inset-0 bg-gray-100 dark:bg-gray-900 flex items-center justify-center">
-          <div className="text-center p-8 bg-white/80 dark:bg-black/80 rounded-lg">
-            <div className="w-64 h-40 bg-gray-200 dark:bg-gray-700 rounded-lg mb-4 flex items-center justify-center">
-              <span className="text-gray-500 dark:text-gray-400 text-sm">Hero Background Image</span>
-            </div>
-            <p className="text-sm text-gray-600 dark:text-gray-400">Placeholder for hero section background</p>
-          </div>
-        </div>
+        <Hyperspeed
+          effectOptions={{
+            colors: {
+              roadColor: theme === 'dark' ? 0x0a0a0a : 0x1a1a1a,
+              islandColor: theme === 'dark' ? 0x0c0c0c : 0x1c1c1c,
+              background: theme === 'dark' ? 0x000000 : 0x0a0a0a,
+              shoulderLines: theme === 'dark' ? 0x1a1a2e : 0x2a2a3e,
+              brokenLines: theme === 'dark' ? 0x1a1a2e : 0x2a2a3e,
+              leftCars: [0x7c3aed, 0x9333ea, 0xa855f7],
+              rightCars: [0x06b6d4, 0x0ea5e9, 0x3b82f6],
+              sticks: theme === 'dark' ? 0x7c3aed : 0x8b5cf6
+            }
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white dark:to-black pointer-events-none" />
       </div>
 
       

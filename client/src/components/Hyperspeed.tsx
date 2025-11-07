@@ -141,9 +141,7 @@ const Hyperspeed = ({
     for (let i = 0; i < totalLights; i++) {
       const lightGeometry = new THREE.CylinderGeometry(0.05, 0.05, 3, 8);
       const lightMaterial = new THREE.MeshBasicMaterial({
-        color: effectOptions.colors?.sticks || 0x03b3c3,
-        emissive: effectOptions.colors?.sticks || 0x03b3c3,
-        emissiveIntensity: 0.3
+        color: effectOptions.colors?.sticks || 0x03b3c3
       });
       
       const light = new THREE.Mesh(lightGeometry, lightMaterial);
