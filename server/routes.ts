@@ -4,7 +4,14 @@ import { storage } from "./storage";
 import OpenAI from "openai";
 
 // the newest OpenAI model is "gpt-5" which was released August 7, 2025. do not change this unless explicitly requested by the user
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+let openai: OpenAI | null = null;
+function getOpenAI(): OpenAI {
+  if (!openai) {
+    if (!process.env.OPENAI_API_KEY) throw new Error("OPENAI_API_KEY is not set");
+    openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+  }
+  return openai;
+}
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Chatbot endpoint
@@ -12,7 +19,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const { message } = req.body;
       
-      const response = await openai.chat.completions.create({
+      const response = await getOpenAI().chat.completions.create({
         model: "gpt-5",
         messages: [
           {
@@ -59,7 +66,7 @@ Answer questions about Hassan's background, skills, experience, and projects. Be
 
       const targetLangName = languageMap[targetLanguage] || 'English';
 
-      const response = await openai.chat.completions.create({
+      const response = await getOpenAI().chat.completions.create({
         model: "gpt-5",
         messages: [
           {
@@ -85,7 +92,7 @@ Answer questions about Hassan's background, skills, experience, and projects. Be
     try {
       const { content } = req.body;
 
-      const response = await openai.chat.completions.create({
+      const response = await getOpenAI().chat.completions.create({
         model: "gpt-5",
         messages: [
           {
