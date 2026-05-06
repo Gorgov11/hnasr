@@ -4,7 +4,9 @@ import { storage } from "./storage";
 import OpenAI from "openai";
 
 // the newest OpenAI model is "gpt-5" which was released August 7, 2025. do not change this unless explicitly requested by the user
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+function getOpenAI() {
+  return new OpenAI({ apiKey: process.env.OPENAI_API_KEY || "sk-placeholder" });
+}
 
 const DGC_SYSTEM_PROMPT = `You are DGC's (Digital Game Changers) AI assistant. DGC is a premier full-service digital agency headquartered in Dubai, UAE, serving clients globally across the UAE, Saudi Arabia, Qatar, Egypt, China, USA, UK, Norway, and beyond.
 
@@ -74,7 +76,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         return res.status(400).json({ error: "Message is required" });
       }
 
-      const response = await openai.chat.completions.create({
+      const response = await getOpenAI().chat.completions.create({
         model: "gpt-5",
         messages: [
           { role: "system", content: DGC_SYSTEM_PROMPT },
@@ -109,7 +111,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       console.log("====================================");
 
       // Generate an AI-powered acknowledgment
-      const ackResponse = await openai.chat.completions.create({
+      const ackResponse = await getOpenAI().chat.completions.create({
         model: "gpt-5",
         messages: [
           {
@@ -153,7 +155,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
       const targetLangName = languageMap[targetLanguage] || "English";
 
-      const response = await openai.chat.completions.create({
+      const response = await getOpenAI().chat.completions.create({
         model: "gpt-5",
         messages: [
           {
