@@ -1,0 +1,37 @@
+{
+  "expo": {
+    "name": "DGC - Digital Game Changers",
+    "slug": "dgc-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#050a0f"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "ae.dgcc.app"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#050a0f"
+      },
+      "package": "ae.dgcc.app"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro"
+    },
+    "plugins": [
+      "expo-router"
+    ],
+    "scheme": "dgc",
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}
